@@ -82,6 +82,11 @@ def main():
 
     active_orders = active_orders[active_orders['交貨日'].apply(is_valid_delivery_date)].copy()
 
+    # Mask customer names for presentation privacy
+    unique_customers = active_orders['客戶'].dropna().unique()
+    customer_mask_map = {cust: f"客戶 {chr(65 + i)}" for i, cust in enumerate(unique_customers)}
+    active_orders['masked_customer'] = active_orders['客戶'].map(customer_mask_map).fillna("客戶 X")
+
     ref_date = pd.Timestamp.today().normalize()
     
     def parse_and_calculate_risk(date_val):
@@ -107,7 +112,7 @@ def main():
     active_orders['risk_level'] = [r[0] for r in risk_results]
     active_orders['clean_date'] = [r[1] for r in risk_results]
 
-    summary_df = active_orders[['訂單號碼', '客戶', '圖號', 'order_qty_num', 'unshipped_num', 'produced_num', 'clean_date', 'risk_level', '已完成製程', '未完成製程', '備註']].copy()
+    summary_df = active_orders[['訂單號碼', 'masked_customer', '圖號', 'order_qty_num', 'unshipped_num', 'produced_num', 'clean_date', 'risk_level', '已完成製程', '未完成製程', '備註']].copy()
     summary_df.columns = ['訂單編號', '客戶', '產品圖號', '訂單數量', '未交數量', '已生產數量', '預定交貨日', '交期風險燈號', '已完成製程', '未完成製程', '備註']
 
     risk_order = {"RED-OVERDUE": 1, "YELLOW-7DAYS": 2, "GREEN-NORMAL": 3, "PENDING": 4}
@@ -147,7 +152,7 @@ def main():
         </style>
     </head>
     <body>
-        <h2>廠務生產現場未交訂單與製程進度看板</h2>
+        <h2>廠務生產現場未交訂單與製程進度看板 (發表演示版 - 客戶已遮罩)</h2>
         <p>評估基準日（今日）：<strong>{ref_date.strftime('%Y-%m-%d')}</strong> | 現場執行未交訂單總計：<strong>{len(summary_df)}</strong> 筆</p>
         <table>
             <tr>
