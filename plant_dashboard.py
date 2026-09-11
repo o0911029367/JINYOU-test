@@ -25,6 +25,34 @@ def main():
     
     orders_df = pd.read_excel(excel_path, sheet_name="訂單")
 
+    # Read rich text colors for column T
+    wb = openpyxl.load_workbook(excel_path, data_only=True, rich_text=True)
+    sheet = wb['訂單']
+    
+    uncompleted_col = []
+    
+    for r in range(2, len(orders_df) + 2):
+        cell = sheet.cell(row=r, column=20)
+        val = cell.value
+        uncompleted_parts = []
+        
+        if hasattr(val, '__iter__') and not isinstance(val, str):
+            for block in val:
+                if isinstance(block, str):
+                    uncompleted_parts.append(block)
+                else:
+                    text = getattr(block, 'text', str(block))
+                    color = block.font.color.rgb if hasattr(block, 'font') and block.font and block.font.color else 'None'
+                    # Keep uncompleted (red text or default text, exclude green completed parts)
+                    if not ('00B050' in str(color) or '008000' in str(color)):
+                        uncompleted_parts.append(text)
+        else:
+            uncompleted_parts.append(str(val) if pd.notna(val) else '')
+            
+        uncompleted_col.append(''.join(uncompleted_parts).strip())
+
+    orders_df['未完成製程'] = uncompleted_col
+
     # Clean numeric columns
     orders_df['order_qty_num'] = pd.to_numeric(orders_df['訂單數量'], errors='coerce').fillna(0)
     orders_df['unshipped_num'] = pd.to_numeric(orders_df['未交'], errors='coerce').fillna(0)
@@ -33,7 +61,7 @@ def main():
     # Filter 1: Only keep rows where unshipped > 0
     active_orders = orders_df[orders_df['unshipped_num'] > 0].copy()
 
-    # Filter 2: Exclude non-production / test items (e.g. '暫停', '樣品', '待', '未排', '停', '測試', 'test')
+    # Filter 2: Exclude non-production / test items
     exclude_keywords = ['暫停', '樣品', '待', '未排', '停', '測試', 'test']
     
     def is_valid_delivery_date(val):
@@ -90,9 +118,9 @@ def main():
     }
     active_orders['risk_symbol'] = active_orders['risk_level'].map(risk_symbol_map)
 
-    # Columns: 交期風險, 預交日, 客戶, 產品圖號, 訂單號碼, 未交數, 生產數, delivery_month, risk_code
-    summary_df = active_orders[['risk_symbol', 'clean_date', 'masked_customer', '圖號', '訂單號碼', 'unshipped_num', 'produced_num', 'delivery_month', 'risk_level']].copy()
-    summary_df.columns = ['交期風險', '預定交貨日', '客戶', '產品圖號', '訂單編號', '未交數量', '已生產數量', 'delivery_month', 'risk_code']
+    # Columns: 交期風險, 預交日, 客戶, 產品圖號, 訂單號碼, 未交數, 生產數, 未完成製程, delivery_month, risk_code
+    summary_df = active_orders[['risk_symbol', 'clean_date', 'masked_customer', '圖號', '訂單號碼', 'unshipped_num', 'produced_num', '未完成製程', 'delivery_month', 'risk_level']].copy()
+    summary_df.columns = ['交期風險', '預定交貨日', '客戶', '產品圖號', '訂單編號', '未交數量', '已生產數量', '未完成製程', 'delivery_month', 'risk_code']
 
     risk_order = {"RED-OVERDUE": 1, "YELLOW-7DAYS": 2, "GREEN-NORMAL": 3, "PENDING": 4}
     summary_df['risk_sort'] = summary_df['risk_code'].map(risk_order)
@@ -100,8 +128,8 @@ def main():
     # Sort by delivery month then risk then unshipped qty
     summary_df = summary_df.sort_values(by=['delivery_month', 'risk_sort', '未交數量'], ascending=[True, True, False])
 
-    # Export columns for CSV and HTML (without internal sort helper columns)
-    export_df = summary_df[['交期風險', '預定交貨日', '客戶', '產品圖號', '訂單編號', '未交數量', '已生產數量', 'delivery_month']].copy()
+    # Export columns for CSV and HTML
+    export_df = summary_df[['交期風險', '預定交貨日', '客戶', '產品圖號', '訂單編號', '未交數量', '已生產數量', '未完成製程', 'delivery_month']].copy()
 
     # Save CSV report
     output_csv_path = os.path.join(os.path.dirname(__file__), "plant_summary_dashboard.csv")
@@ -131,6 +159,7 @@ def main():
             tr.green {{ background-color: #d4edda; color: #155724; }}
             tr.pending {{ background-color: #e2e3e5; color: #383d41; }}
             .light-cell {{ text-align: center; font-size: 16px; }}
+            .uncompleted-text {{ color: #721c24; font-weight: bold; }}
         </style>
         <script>
             function filterTable() {{
@@ -180,6 +209,7 @@ def main():
                     <th>訂單號碼</th>
                     <th>未交數</th>
                     <th>生產數</th>
+                    <th>未完成製程</th>
                 </tr>
             </thead>
             <tbody>
@@ -204,6 +234,7 @@ def main():
                     <td>{row['訂單編號'] if pd.notna(row['訂單編號']) else ''}</td>
                     <td>{row['未交數量']:,.0f}</td>
                     <td>{row['已生產數量']:,.0f}</td>
+                    <td class="uncompleted-text">{row['未完成製程'] if pd.notna(row['未完成製程']) else ''}</td>
                 </tr>
             """
         html_content += """
