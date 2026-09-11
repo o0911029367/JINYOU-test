@@ -8,7 +8,7 @@
             body { font-family: "Microsoft JhengHei", Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }
             h2 { color: #333; }
             table { border-collapse: collapse; width: 100%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-            th, td { border: 1px solid #dee2e6; padding: 10px 12px; text-align: left; }
+            th, td { border: 1px solid #dee2e6; padding: 10px 12px; text-align: left; font-size: 14px; }
             th { background-color: #343a40; color: white; }
             tr.red { background-color: #f8d7da; color: #721c24; font-weight: bold; }
             tr.yellow { background-color: #fff3cd; color: #856404; }
@@ -22,8 +22,8 @@
         </style>
     </head>
     <body>
-        <h2>廠務未交訂單交期風險即時看板</h2>
-        <p>評估基準日（今日）：<strong>2026-09-11</strong> | 進行中未交訂單總計：<strong>177</strong> 筆</p>
+        <h2>廠務未交訂單交期風險即時看板 (訂單分頁)</h2>
+        <p>評估基準日（今日）：<strong>2026-09-11</strong> | 未交訂單總計：<strong>134</strong> 筆</p>
         <table>
             <tr>
                 <th>訂單編號</th>
@@ -34,117 +34,10 @@
                 <th>已生產數量</th>
                 <th>預定交貨日</th>
                 <th>交期風險燈號</th>
-                <th>訂單狀態</th>
+                <th>製程現況</th>
+                <th>備註</th>
             </tr>
     
-            <tr class="red">
-                <td>20260525022-01</td>
-                <td>達建</td>
-                <td>M5GAEQHAC076</td>
-                <td>14,000</td>
-                <td>14,000</td>
-                <td>0</td>
-                <td>2026-09-01</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260504003-02</td>
-                <td>六哥</td>
-                <td>4VSBTB1-230P275</td>
-                <td>8,640</td>
-                <td>8,640</td>
-                <td>0</td>
-                <td>2026-08-03</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>1150513038-3</td>
-                <td>安大</td>
-                <td>50475723-0T366</td>
-                <td>8,000</td>
-                <td>8,000</td>
-                <td>0</td>
-                <td>2026-08-17</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>215520</td>
-                <td>衛蒲</td>
-                <td>鏈條內管</td>
-                <td>7,200</td>
-                <td>7,199</td>
-                <td>0</td>
-                <td>2026-07-15</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>1150513038-4</td>
-                <td>安大</td>
-                <td>50475723-0T366</td>
-                <td>6,300</td>
-                <td>6,300</td>
-                <td>0</td>
-                <td>2026-08-26</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>1150518004-2</td>
-                <td>安大</td>
-                <td>50483137A-264</td>
-                <td>5,000</td>
-                <td>5,000</td>
-                <td>0</td>
-                <td>2026-08-03</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>1150518004-4</td>
-                <td>安大</td>
-                <td>50483137A-264</td>
-                <td>5,000</td>
-                <td>5,000</td>
-                <td>0</td>
-                <td>2026-08-26</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>215520</td>
-                <td>衛蒲</td>
-                <td>鏈條內管</td>
-                <td>4,550</td>
-                <td>4,550</td>
-                <td>0</td>
-                <td>2026-07-15</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>215520</td>
-                <td>衛蒲</td>
-                <td>鏈條外管</td>
-                <td>4,550</td>
-                <td>4,550</td>
-                <td>0</td>
-                <td>2026-07-15</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
             <tr class="red">
                 <td>1150518004-5</td>
                 <td>安大</td>
@@ -154,67 +47,34 @@
                 <td>0</td>
                 <td>2026-09-04</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>6/18~8/4裁管→凹頭→8/10抽1→擴管 →抽2 →整形1 →8/13整形2 →8/19切頭尾 →折角 →整形3 →修頭 →整形4 →8/20滾花→8/21皮膜→包裝</td>
+                <td>逢聯TM11506-001</td>
             </tr>
         
             <tr class="red">
-                <td>1150413015-3</td>
+                <td>1150518004-4</td>
                 <td>安大</td>
                 <td>50483137A-264</td>
-                <td>4,000</td>
-                <td>4,000</td>
+                <td>5,000</td>
+                <td>3,224</td>
                 <td>0</td>
-                <td>2026-08-03</td>
+                <td>2026-09-01</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>6/18~7/16裁管→凹頭→7/17抽1→8/10擴管 →抽2 →整形1 →8/11整形2 →8/13切頭尾 →折角 →整形3 →修頭 →整形4 →滾花→8/20皮膜→8/26包裝</td>
+                <td>逢聯TM11506-001</td>
             </tr>
         
             <tr class="red">
-                <td>1150513038-2</td>
-                <td>安大</td>
-                <td>50475723-0T366</td>
-                <td>3,500</td>
-                <td>3,500</td>
-                <td>0</td>
-                <td>2026-08-04</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>1150518004-3</td>
-                <td>安大</td>
-                <td>50483137A-264</td>
-                <td>3,500</td>
-                <td>3,500</td>
-                <td>0</td>
-                <td>2026-08-26</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260324004-01</td>
+                <td>20260715001-08</td>
                 <td>六哥</td>
                 <td>4VSBTB1-230P275</td>
-                <td>2,100</td>
-                <td>2,100</td>
+                <td>2,152</td>
+                <td>2,152</td>
                 <td>0</td>
-                <td>2026-07-27</td>
+                <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>1150708</td>
-                <td>保強</td>
-                <td>H5GAE25FB0228</td>
-                <td>2,000</td>
-                <td>2,000</td>
-                <td>0</td>
-                <td>2026-07-28</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>7/24待裁管 →8/26凹頭→抽1→9/1抽2 →切頭尾→擴+整 →折+整 →修+壓 →皮膜 →鐳雕 →包裝</td>
+                <td>逢聯TM11507-012</td>
             </tr>
         
             <tr class="red">
@@ -226,31 +86,9 @@
                 <td>0</td>
                 <td>2026-08-06</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260715001-06</td>
-                <td>六哥</td>
-                <td>4VSBTB1-230P275</td>
-                <td>1,600</td>
-                <td>1,600</td>
-                <td>0</td>
-                <td>2026-09-07</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>73329658-02</td>
-                <td>速聯</td>
-                <td>25.4015.016.265</td>
-                <td>1,500</td>
-                <td>1,500</td>
-                <td>0</td>
-                <td>2026-07-30</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>6/5裁管→皂化 →6/25凹頭 →抽1→6/30長信(退火)→7/6噴砂+皂化→7/14抽2 →7/24切頭尾 → 擴+整 →折角→整型→頭→7/27長信熱處理→8/3待皂化 →整+滾→皮膜→鐳雕 →包裝</td>
+                <td>猛展1150424
+(原料結束)</td>
             </tr>
         
             <tr class="red">
@@ -262,91 +100,47 @@
                 <td>0</td>
                 <td>2026-09-01</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>7/10~8/4裁管 →8/12CNC兩端 →搪磨 →8/25無心研磨 →8/26松漢-CP電鍍 →8/28包裝</td>
+                <td>宏康1141124</td>
             </tr>
         
             <tr class="red">
-                <td>20250505005-01</td>
-                <td>六哥</td>
-                <td>4VSBTB1-230P275</td>
-                <td>1,440</td>
-                <td>1,440</td>
-                <td>0</td>
-                <td>2026-07-23</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260604006-02</td>
-                <td>六哥</td>
-                <td>4VSBTB1-230P275</td>
-                <td>1,440</td>
-                <td>1,440</td>
+                <td>73329658-02</td>
+                <td>速聯</td>
+                <td>25.4015.016.265</td>
+                <td>1,500</td>
+                <td>1,500</td>
                 <td>0</td>
                 <td>2026-08-14</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>裁管→皂化 →凹頭 →抽1 →長信(退火)→噴砂+皂化→抽2 →切頭尾 → 擴+整 →折角→整型→修頭→6/15長信熱處理→6/23皂化 →6/25整+滾(6/26)→皮膜(6/30)→鐳雕(7/1)→包裝(7/1)</td>
+                <td>猛展1150424</td>
             </tr>
         
             <tr class="red">
-                <td>20260604006-01</td>
+                <td>20260715001-07</td>
                 <td>六哥</td>
                 <td>4VSBTB1-230P275</td>
-                <td>1,440</td>
-                <td>1,440</td>
-                <td>0</td>
-                <td>2026-09-01</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260715001-02</td>
-                <td>六哥</td>
-                <td>4VSBTB1-230P275</td>
-                <td>1,440</td>
-                <td>1,440</td>
+                <td>1,344</td>
+                <td>1,344</td>
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>裁管 →凹頭→8/21抽1→ 8/25抽2 →切頭尾→擴+整 →折+整 →8/27修+壓 →皮膜 →鐳雕 →8/28包裝</td>
+                <td></td>
             </tr>
         
             <tr class="red">
-                <td>20260715001-03</td>
+                <td>20260715001-11</td>
                 <td>六哥</td>
                 <td>4VSBTB1-230P275</td>
-                <td>1,440</td>
-                <td>1,440</td>
+                <td>1,344</td>
+                <td>1,344</td>
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260715001-04</td>
-                <td>六哥</td>
-                <td>4VSBTB1-230P275</td>
-                <td>1,440</td>
-                <td>1,440</td>
-                <td>0</td>
-                <td>2026-09-07</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260715001-09</td>
-                <td>六哥</td>
-                <td>4VSBTB1-230P275</td>
-                <td>1,424</td>
-                <td>1,424</td>
-                <td>0</td>
-                <td>2026-09-07</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>7/24裁管 →凹頭→8/25抽1→8/28抽2 →切頭尾→9/1待擴+整 →折+整 →修+壓 →皮膜 →鐳雕 →包裝</td>
+                <td>逢聯TM11507-012</td>
             </tr>
         
             <tr class="red">
@@ -356,405 +150,144 @@
                 <td>1,500</td>
                 <td>1,321</td>
                 <td>0</td>
-                <td>2026-07-30</td>
+                <td>2026-08-14</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>5/15~5/25裁管→皂化 →5/26凹頭 →抽1 →5/27長信(退火)→6/3噴砂+皂化→6/9抽2 →切頭尾 → 擴+整 →折角 →修頭→長信熱處理→皂化 →整+滾→6/10皮膜→6/11鐳雕 →包裝</td>
+                <td>猛展1150424</td>
             </tr>
         
             <tr class="red">
-                <td>1150508003-1</td>
-                <td>安大</td>
-                <td>50647800-280</td>
-                <td>1,127</td>
-                <td>1,127</td>
+                <td>20260731004</td>
+                <td>達建</td>
+                <td>M5GST252FB340E000</td>
+                <td>1,236</td>
+                <td>1,236</td>
+                <td>0</td>
+                <td>2026-08-26</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>8/5CNC1~2→8/25研磨→8/27硬陽黑色→麻輪 →包裝</td>
+                <td>達建提供</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260731005</td>
+                <td>達建</td>
+                <td>M5GST252FB340Z000</td>
+                <td>1,200</td>
+                <td>1,200</td>
+                <td>0</td>
+                <td>2026-08-26</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>8/5CNC1→8/14CNC2→8/20研磨→8/25硬陽金色→麻輪 →包裝</td>
+                <td>達建提供</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260717015</td>
+                <td>達建</td>
+                <td>M5GST252FB340Z000</td>
+                <td>999</td>
+                <td>783</td>
+                <td>0</td>
+                <td>2026-08-21</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>7/22CNC1~2→8/5研磨→8/7硬陽金色→8/26麻輪 →8/31待包裝</td>
+                <td>達建提供</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260525001-01</td>
+                <td>六哥</td>
+                <td>4VSBRF1-06AP-079</td>
+                <td>560</td>
+                <td>560</td>
+                <td>0</td>
+                <td>2026-07-07</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>5/27裁管→皂化→6/2凹頭→6/10抽1→6/10CNC1~3→6/24防鏽(6/26)→7/7包裝</td>
+                <td>猛展1131023
+(1150524)</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260807004</td>
+                <td>達建</td>
+                <td>M5GST7EA318E100</td>
+                <td>528</td>
+                <td>528</td>
+                <td>0</td>
+                <td>2026-08-26</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>8/12研磨→8/14巨品-硬陽黑→8/26麻輪(8/26)  →8/31包裝</td>
+                <td>達建提供</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260820004</td>
+                <td>達建</td>
+                <td>M5GST7EA318E100</td>
+                <td>528</td>
+                <td>528</td>
+                <td>0</td>
+                <td>2026-09-10</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
+                <td>達建提供</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260807003</td>
+                <td>達建</td>
+                <td>M5GST7EE318E100</td>
+                <td>462</td>
+                <td>462</td>
+                <td>0</td>
+                <td>2026-08-26</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>8/12研磨→8/14巨品-硬陽黑→8/26麻輪(8/26) →8/31包裝</td>
+                <td>達建提供</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260812001</td>
+                <td>達建</td>
+                <td>M5GST7EE318E100</td>
+                <td>330</td>
+                <td>330</td>
                 <td>0</td>
                 <td>2026-09-01</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>8/14研磨→8/18巨品-硬陽黑→8/26麻輪 →8/31待包裝</td>
+                <td>達建提供</td>
             </tr>
         
             <tr class="red">
-                <td>1150707024-1</td>
-                <td>安大</td>
-                <td>50647800-280</td>
-                <td>1,100</td>
-                <td>1,100</td>
+                <td>20260812003</td>
+                <td>達建</td>
+                <td>M5GST7EA318E100</td>
+                <td>327</td>
+                <td>327</td>
+                <td>0</td>
+                <td>2026-09-01</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>8/14研磨→8/18巨品-硬陽黑→8/26麻輪 →8/31待包裝</td>
+                <td>達建提供</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260811035-06</td>
+                <td>六哥</td>
+                <td>4VUCFG1-050P-HB1</td>
+                <td>250</td>
+                <td>250</td>
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260522003-01</td>
-                <td>六哥</td>
-                <td>4VUCRF1-04AP-HA1</td>
-                <td>1,000</td>
-                <td>1,000</td>
-                <td>0</td>
-                <td>2026-07-27</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260522003-02</td>
-                <td>六哥</td>
-                <td>4VUCRF1-04AP-HA1</td>
-                <td>1,000</td>
-                <td>1,000</td>
-                <td>0</td>
-                <td>2026-08-04</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260522003-03</td>
-                <td>六哥</td>
-                <td>4VUCRF1-04AP-HA1</td>
-                <td>1,000</td>
-                <td>1,000</td>
-                <td>0</td>
-                <td>2026-08-11</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260522003-04</td>
-                <td>六哥</td>
-                <td>4VUCRF1-04AP-HA1</td>
-                <td>1,000</td>
-                <td>1,000</td>
-                <td>0</td>
-                <td>2026-08-18</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260706002-01</td>
-                <td>達建</td>
-                <td>M5GSTAE0315C000</td>
-                <td>1,000</td>
-                <td>1,000</td>
-                <td>0</td>
-                <td>2026-09-01</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260706002-02</td>
-                <td>達建</td>
-                <td>M5GSTAE1315C000</td>
-                <td>1,000</td>
-                <td>1,000</td>
-                <td>0</td>
-                <td>2026-09-01</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>215520</td>
-                <td>衛蒲</td>
-                <td>鏈條外管</td>
-                <td>7,200</td>
-                <td>987</td>
-                <td>0</td>
-                <td>2026-07-15</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260703003</td>
-                <td>達建</td>
-                <td>M5GST7EA318E100</td>
-                <td>907</td>
-                <td>907</td>
-                <td>0</td>
-                <td>2026-07-20</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260417021-02</td>
-                <td>達建</td>
-                <td>M5GAEQHAC076</td>
-                <td>1,500</td>
-                <td>738</td>
-                <td>0</td>
-                <td>2026-07-22</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260703002</td>
-                <td>達建</td>
-                <td>M5GST7EE318E100</td>
-                <td>697</td>
-                <td>697</td>
-                <td>0</td>
-                <td>2026-07-20</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260715003</td>
-                <td>達建</td>
-                <td>M5GST7EE318E100</td>
-                <td>525</td>
-                <td>525</td>
-                <td>0</td>
-                <td>2026-07-30</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>S00002</td>
-                <td>義大利</td>
-                <td>12MM-COMPRESSION-SHAFT-SEPARATORE-3</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-06-30</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260417021-03</td>
-                <td>達建</td>
-                <td>M5GAEQHAC076</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-07-22</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260325004-01</td>
-                <td>六哥</td>
-                <td>4VSBUG1-330P-234</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-07-27</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260325004-02</td>
-                <td>六哥</td>
-                <td>4VUCUG1-040P-001</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-07-27</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260325004-03</td>
-                <td>六哥</td>
-                <td>4VUCUG1-050P-001</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-07-27</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260603006-03</td>
-                <td>達建</td>
-                <td>M5GSTAE0315C000</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-08-11</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260603006-04</td>
-                <td>達建</td>
-                <td>M5GSTAE1315C000</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-08-11</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>待補訂單</td>
-                <td>達建</td>
-                <td>M5GSTAH6195A20M</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-08-14</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260525004-01</td>
-                <td>達建</td>
-                <td>MFPV286100(300*0)</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-08-14</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260325004-01</td>
-                <td>六哥</td>
-                <td>4VSBUG1-330P-234</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-09-01</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260325004-02</td>
-                <td>六哥</td>
-                <td>4VUCUG1-040P-001</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-09-01</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260325004-03</td>
-                <td>六哥</td>
-                <td>4VUCUG1-050P-001</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-09-01</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260603006-01</td>
-                <td>達建</td>
-                <td>M5GSTAC0268A000</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-09-01</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260603006-02</td>
-                <td>達建</td>
-                <td>M5GSTAC1268A000</td>
-                <td>500</td>
-                <td>500</td>
-                <td>0</td>
-                <td>2026-09-01</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260713007</td>
-                <td>達建</td>
-                <td>M5GST7EA318E100</td>
-                <td>471</td>
-                <td>471</td>
-                <td>0</td>
-                <td>2026-07-28</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260715001-01</td>
-                <td>六哥</td>
-                <td>4VSBTB1-230P275</td>
-                <td>352</td>
-                <td>352</td>
-                <td>0</td>
-                <td>2026-09-01</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260706010</td>
-                <td>達建</td>
-                <td>M5GST7EE318E100</td>
-                <td>255</td>
-                <td>255</td>
-                <td>0</td>
-                <td>2026-07-20</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260706009</td>
-                <td>達建</td>
-                <td>M5GST7EE318E100</td>
-                <td>238</td>
-                <td>238</td>
-                <td>0</td>
-                <td>2026-07-20</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260504017-01</td>
-                <td>達建</td>
-                <td>M5GSTAE0315C000</td>
-                <td>600</td>
-                <td>219</td>
-                <td>0</td>
-                <td>2026-08-11</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260504017-02</td>
-                <td>達建</td>
-                <td>M5GSTAE1315C000</td>
-                <td>600</td>
-                <td>219</td>
-                <td>0</td>
-                <td>2026-08-11</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>待貼箱</td>
+                <td>新芳1141022
+(C1141017)
+取28支轉出C1150301-1
+新芳1141118</td>
             </tr>
         
             <tr class="red">
@@ -766,31 +299,91 @@
                 <td>0</td>
                 <td>2026-07-10</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>6/10墨達思→6/22CNC粗車→8/13CNC1~2→8/13CNC3~5→搪磨 →硬陽→包裝</td>
+                <td>墨達思1150610</td>
             </tr>
         
             <tr class="red">
-                <td>20260313008-01</td>
-                <td>達建</td>
-                <td>M5GST2LA350E100</td>
+                <td>20260611035-05</td>
+                <td>六哥</td>
+                <td>4VUCFG1-040P-BB1</td>
                 <td>200</td>
                 <td>200</td>
                 <td>0</td>
-                <td>2026-09-02</td>
+                <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>待貼箱</td>
+                <td>新芳1140402
+(C1140404)
+新芳1141021
+(C1141101)
+新芳1141128
+取34支轉入C1150302-1</td>
             </tr>
         
             <tr class="red">
-                <td>20260313008-02</td>
-                <td>達建</td>
-                <td>M5GST2LE350E100</td>
+                <td>20260811035-04</td>
+                <td>六哥</td>
+                <td>4VCUFG1-560P-001</td>
                 <td>200</td>
                 <td>200</td>
                 <td>0</td>
-                <td>2026-09-02</td>
+                <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>待貼箱</td>
+                <td></td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260811035-02</td>
+                <td>六哥</td>
+                <td>4VBLFG1-540P-001</td>
+                <td>200</td>
+                <td>200</td>
+                <td>0</td>
+                <td>2026-09-07</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>待貼箱</td>
+                <td></td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260811034-01</td>
+                <td>六哥</td>
+                <td>4VSBFG1-330P-173</td>
+                <td>200</td>
+                <td>200</td>
+                <td>0</td>
+                <td>2026-09-07</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>待貼箱</td>
+                <td></td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260820003</td>
+                <td>達建</td>
+                <td>M5GST7EE318E100</td>
+                <td>198</td>
+                <td>198</td>
+                <td>0</td>
+                <td>2026-09-10</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
+                <td>達建提供</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260812002</td>
+                <td>達建</td>
+                <td>M5GST7EE318E100</td>
+                <td>185</td>
+                <td>185</td>
+                <td>0</td>
+                <td>2026-09-01</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>8/14研磨→8/18巨品-硬陽黑→8/26麻輪 →8/31待包裝</td>
+                <td>達建提供</td>
             </tr>
         
             <tr class="red">
@@ -802,7 +395,13 @@
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>貼箱</td>
+                <td>新芳1140402
+(C1140404)
+新芳1141021
+(C1141101)
+新芳1141128
+取34支轉入C1150302-1</td>
             </tr>
         
             <tr class="red">
@@ -814,7 +413,11 @@
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>貼箱</td>
+                <td>新芳1141022
+(C1141017)
+取28支轉出C1150301-1
+新芳1141118</td>
             </tr>
         
             <tr class="red">
@@ -826,19 +429,74 @@
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>貼箱</td>
+                <td></td>
             </tr>
         
             <tr class="red">
-                <td>20260713008</td>
+                <td>20260527006-02</td>
+                <td>六哥</td>
+                <td>4VCSFF1-270P-001</td>
+                <td>160</td>
+                <td>160</td>
+                <td>0</td>
+                <td>2026-08-03</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>貼箱</td>
+                <td>國鏟1111110</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260812004</td>
                 <td>達建</td>
                 <td>M5GST7EA318E100</td>
-                <td>141</td>
-                <td>141</td>
+                <td>145</td>
+                <td>145</td>
                 <td>0</td>
-                <td>2026-07-28</td>
+                <td>2026-09-01</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>8/14研磨→8/18巨品-硬陽黑→8/26麻輪 →8/31待包裝</td>
+                <td>達建提供</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260626004-01</td>
+                <td>六哥</td>
+                <td>4VSBUG1-330P-234</td>
+                <td>140</td>
+                <td>140</td>
+                <td>0</td>
+                <td>2026-08-21</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td></td>
+                <td>安典1150703</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260626004-07</td>
+                <td>六哥</td>
+                <td>4VUCUG1-050P-001</td>
+                <td>140</td>
+                <td>140</td>
+                <td>0</td>
+                <td>2026-08-21</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td></td>
+                <td></td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260626004-04</td>
+                <td>六哥</td>
+                <td>4VUCUG1-040P-001</td>
+                <td>140</td>
+                <td>140</td>
+                <td>0</td>
+                <td>2026-08-21</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td></td>
+                <td>
+</td>
             </tr>
         
             <tr class="red">
@@ -850,7 +508,13 @@
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>貼箱</td>
+                <td>新芳1140402
+(C1140404)
+新芳1141021
+(C1141101)
+新芳1141128
+取34支轉入C1150302-1</td>
             </tr>
         
             <tr class="red">
@@ -862,7 +526,11 @@
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>貼箱</td>
+                <td>新芳1141022
+(C1141017)
+取28支轉出C1150301-1
+新芳1141118</td>
             </tr>
         
             <tr class="red">
@@ -874,55 +542,8 @@
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>GW20251203-1-1</td>
-                <td>詮盈</td>
-                <td>MS-118-A</td>
-                <td>4,506</td>
-                <td>93</td>
-                <td>0</td>
-                <td>2026-06-30</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260527006-01</td>
-                <td>六哥</td>
-                <td>4VBLFG1-540P-001</td>
-                <td>80</td>
-                <td>80</td>
-                <td>0</td>
-                <td>2026-07-27</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260527006-06</td>
-                <td>六哥</td>
-                <td>4VUCFG1-040P-BB1</td>
-                <td>80</td>
-                <td>80</td>
-                <td>0</td>
-                <td>2026-07-27</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260527006-07</td>
-                <td>六哥</td>
-                <td>4VUCFG1-050P-HB1</td>
-                <td>80</td>
-                <td>80</td>
-                <td>0</td>
-                <td>2026-07-27</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>貼箱</td>
+                <td></td>
             </tr>
         
             <tr class="red">
@@ -934,7 +555,34 @@
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>貼箱</td>
+                <td></td>
+            </tr>
+        
+            <tr class="red">
+                <td>測試品</td>
+                <td>安大</td>
+                <td>50475723-0T366</td>
+                <td>70</td>
+                <td>70</td>
+                <td>0</td>
+                <td>2026-08-04</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>7/29裁管→裁管+倒角→皂化→7/29待凹頭→抽管1→皂化→抽2→7/30待切頭尾→折角→整形→修頭→滾花→8/3皮膜→8/11待包裝</td>
+                <td>猛展1150525</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260721005-01</td>
+                <td>六哥</td>
+                <td>4VBLFG1-540P-001</td>
+                <td>70</td>
+                <td>70</td>
+                <td>0</td>
+                <td>2026-09-07</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>待貼箱</td>
+                <td></td>
             </tr>
         
             <tr class="red">
@@ -946,31 +594,8 @@
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>11393</td>
-                <td>R53</td>
-                <td>AD-21A-P630</td>
-                <td>50</td>
-                <td>50</td>
-                <td>0</td>
-                <td>2026-07-17</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>11393</td>
-                <td>R53</td>
-                <td>AD-21A-P631</td>
-                <td>50</td>
-                <td>50</td>
-                <td>0</td>
-                <td>2026-07-17</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>貼箱</td>
+                <td></td>
             </tr>
         
             <tr class="red">
@@ -982,7 +607,8 @@
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>貼箱</td>
+                <td></td>
             </tr>
         
             <tr class="red">
@@ -994,31 +620,8 @@
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260706009</td>
-                <td>達建</td>
-                <td>M5GST7EE318E100</td>
-                <td>46</td>
-                <td>46</td>
-                <td>0</td>
-                <td>2026-07-20</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260527006-05</td>
-                <td>六哥</td>
-                <td>4VCUFG1-560P-001</td>
-                <td>40</td>
-                <td>40</td>
-                <td>0</td>
-                <td>2026-07-27</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>貼箱</td>
+                <td>黃朝泰1141125</td>
             </tr>
         
             <tr class="red">
@@ -1030,45 +633,21 @@
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>貼箱</td>
+                <td></td>
             </tr>
         
             <tr class="red">
-                <td>20260527005-02</td>
+                <td>20260721005-02</td>
                 <td>六哥</td>
-                <td>4VSBFG1-330P-173</td>
+                <td>4VCUFG1-560P-001</td>
                 <td>35</td>
                 <td>35</td>
                 <td>0</td>
-                <td>2026-07-27</td>
+                <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260709003-01</td>
-                <td>六哥</td>
-                <td>VMK1-340P
-7VUC20210707HA1</td>
-                <td>35</td>
-                <td>35</td>
-                <td>0</td>
-                <td>2026-07-30</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260709003-02</td>
-                <td>六哥</td>
-                <td>VMK1-350P
-7VUC20210707HA2</td>
-                <td>35</td>
-                <td>35</td>
-                <td>0</td>
-                <td>2026-07-30</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>待貼箱</td>
+                <td></td>
             </tr>
         
             <tr class="red">
@@ -1080,157 +659,129 @@
                 <td>0</td>
                 <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>貼箱</td>
+                <td>宇鋮1140306
+宇鋮1141104
+(C1141102-1)</td>
             </tr>
         
             <tr class="red">
-                <td>20260617001</td>
+                <td>20260721004-01</td>
                 <td>六哥</td>
-                <td>7VUC20241206007</td>
+                <td>4VSBFG1-330P-173</td>
                 <td>20</td>
                 <td>20</td>
                 <td>0</td>
-                <td>2026-08-10</td>
+                <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>待貼箱</td>
+                <td></td>
             </tr>
         
             <tr class="red">
-                <td>20260506007-03</td>
+                <td>20260527006-03</td>
+                <td>六哥</td>
+                <td>4VCSFG1-060P-001</td>
+                <td>10</td>
+                <td>10</td>
+                <td>0</td>
+                <td>2026-08-03</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>待貼箱</td>
+                <td></td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260527006-04</td>
+                <td>六哥</td>
+                <td>4VCSFG1-070P-001</td>
+                <td>10</td>
+                <td>10</td>
+                <td>0</td>
+                <td>2026-08-03</td>
+                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
+                <td>貼箱</td>
+                <td>金昌隆1130513</td>
+            </tr>
+        
+            <tr class="red">
+                <td>20260811035-01</td>
                 <td>六哥</td>
                 <td>4VBLFG1-540P-001</td>
-                <td>12</td>
-                <td>12</td>
+                <td>8</td>
+                <td>8</td>
                 <td>0</td>
-                <td>2026-07-27</td>
+                <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>待貼箱</td>
+                <td></td>
             </tr>
         
             <tr class="red">
-                <td>20260514</td>
-                <td>百兆</td>
-                <td>TRX-ALB-DRG002A</td>
-                <td>10</td>
-                <td>10</td>
-                <td>0</td>
-                <td>2026-06-30</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260603001-03</td>
+                <td>20260527005-01</td>
                 <td>六哥</td>
-                <td>7VUC20250812005</td>
-                <td>10</td>
-                <td>10</td>
+                <td>4VSBFG1-330P-170</td>
+                <td>5</td>
+                <td>5</td>
                 <td>0</td>
-                <td>2026-07-31</td>
+                <td>2026-08-03</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>貼箱</td>
+                <td></td>
             </tr>
         
             <tr class="red">
-                <td>20260506007-16</td>
+                <td>20260811035-03</td>
                 <td>六哥</td>
                 <td>4VCUFG1-560P-001</td>
-                <td>6</td>
-                <td>6</td>
-                <td>0</td>
-                <td>2026-07-27</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>待補單</td>
-                <td>立盟</td>
-                <td>WT000691-200</td>
-                <td>5</td>
-                <td>5</td>
-                <td>0</td>
-                <td>2026-07-17</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>待補單</td>
-                <td>立盟</td>
-                <td>WT000692-160</td>
-                <td>5</td>
-                <td>5</td>
-                <td>0</td>
-                <td>2026-07-17</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>待補單</td>
-                <td>立盟</td>
-                <td>WT000693-125</td>
-                <td>5</td>
-                <td>5</td>
-                <td>0</td>
-                <td>2026-07-17</td>
-                <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="red">
-                <td>20260603001-02</td>
-                <td>六哥</td>
-                <td>7VUC20250812004</td>
                 <td>4</td>
                 <td>4</td>
                 <td>0</td>
-                <td>2026-07-31</td>
+                <td>2026-09-07</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>待貼箱</td>
+                <td></td>
             </tr>
         
             <tr class="red">
-                <td>試電鍍用</td>
+                <td>20260804005-01</td>
                 <td>六哥</td>
-                <td>7VUC20240403012
-VFF1-050P
-7VUC20240403013
-VFF1-040P</td>
+                <td>7VCSEM1-290P001
+(4VEM1-290P)  </td>
+                <td>1</td>
+                <td>1</td>
                 <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>2026-07-03</td>
+                <td>2026-08-31</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>8/7~8/13裁管→8/13CNC→8/31無心研磨→8/31竣淵→包裝</td>
+                <td>金昌隆1140409</td>
             </tr>
         
             <tr class="red">
-                <td>試電鍍用</td>
+                <td>20260804005-02</td>
                 <td>六哥</td>
-                <td>7VUC20240403012
-VFF1-050P
-7VUC20240403013
-VFF1-040P</td>
+                <td>7VCSEM1-300P001
+(4VEM1-300P)     </td>
+                <td>1</td>
+                <td>1</td>
                 <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>2026-07-03</td>
+                <td>2026-08-31</td>
                 <td><span class="badge badge-red">🔴 紅燈 (已逾期)</span></td>
-                <td>生產中/整修中</td>
+                <td>8/7~8/13裁管→8/13待CNC→包裝</td>
+                <td>金昌隆1140423</td>
             </tr>
         
             <tr class="yellow">
-                <td>1150610005-1</td>
-                <td>安大</td>
-                <td>50475723-0T366</td>
-                <td>4,500</td>
-                <td>4,500</td>
+                <td>20260525022-01</td>
+                <td>達建</td>
+                <td>M5GAEQHAC076</td>
+                <td>14,000</td>
+                <td>13,000</td>
                 <td>0</td>
-                <td>2026-09-18</td>
+                <td>2026-09-16</td>
                 <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
-                <td>生產中/整修中</td>
+                <td>7/29裁管→7/3待CNC1→CNC2→CNC3→8/7铣床 →研磨→8/19硬陽-巨品→8/24待包裝</td>
+                <td>鼎泰1150727</td>
             </tr>
         
             <tr class="yellow">
@@ -1242,7 +793,21 @@ VFF1-040P</td>
                 <td>0</td>
                 <td>2026-09-18</td>
                 <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
-                <td>生產中/整修中</td>
+                <td>7/16~8/20裁管→凹頭→抽1→擴管 →8/24抽2 →整形1 →整形2 →切頭尾 →折角 →整形3 →修頭 →整形4 →8/25滾花→皮膜→包裝</td>
+                <td>逢聯TM11507-012噴黃漆</td>
+            </tr>
+        
+            <tr class="yellow">
+                <td>POW0041530-2</td>
+                <td>賀氏</td>
+                <td>066291-L002</td>
+                <td>2,000</td>
+                <td>2,000</td>
+                <td>0</td>
+                <td>2026-09-15</td>
+                <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
+                <td>5/29裁管(6/4)→校直→6/8CNC1→ CNC2→6/12誠光(無心研磨→硬鉻→無心研磨)→8/10包裝</td>
+                <td>宏康1150506</td>
             </tr>
         
             <tr class="yellow">
@@ -1254,19 +819,186 @@ VFF1-040P</td>
                 <td>0</td>
                 <td>2026-09-18</td>
                 <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
-                <td>生產中/整修中</td>
+                <td>6/30~8/5裁管→8/6待凹頭→8/13抽1→8/13擴管 →抽2 →整形1 →8/14整形2 →8/14切頭尾 →折角 →整形3 →修頭 →整形4 →8/24滾花→8/24皮膜→包裝</td>
+                <td>逢聯TM11506-001</td>
             </tr>
         
             <tr class="yellow">
-                <td>1150415005-1</td>
-                <td>安大</td>
-                <td>50633442BK0T366</td>
-                <td>1,000</td>
-                <td>1,000</td>
+                <td>0367</td>
+                <td>裕誠</td>
+                <td>2036990</td>
+                <td>781</td>
+                <td>781</td>
                 <td>0</td>
                 <td>2026-09-11</td>
                 <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
-                <td>生產中/整修中</td>
+                <td>8/31搪磨</td>
+                <td></td>
+            </tr>
+        
+            <tr class="yellow">
+                <td>20260706002-01</td>
+                <td>達建</td>
+                <td>M5GSTAE0315C000</td>
+                <td>500</td>
+                <td>500</td>
+                <td>0</td>
+                <td>2026-09-14</td>
+                <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
+                <td>7/13裁管+倒角→皂化→7/17凹頭 →7/21抽管→7/27切頭尾→7/28校直 →7/30CNC 右 →8/11無心研磨 →8/12九井QPQ→8/18碳刷 →8/21包裝</td>
+                <td>猛展1150525</td>
+            </tr>
+        
+            <tr class="yellow">
+                <td>20260706002-03</td>
+                <td>達建</td>
+                <td>M5GSTAE1315C000</td>
+                <td>500</td>
+                <td>500</td>
+                <td>0</td>
+                <td>2026-09-14</td>
+                <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
+                <td>7/13裁管+倒角→皂化→7/17凹頭 →7/21抽管→7/28切頭尾→7/28輪圓頭+倒角 →7/28校直 →7/30CNC右 →8/11無心研磨 →8/12九井QPQ →8/18碳刷 →8/19待包裝</td>
+                <td>猛展1150525</td>
+            </tr>
+        
+            <tr class="yellow">
+                <td>20260727003-01</td>
+                <td>達建</td>
+                <td>M5GSTAE0345C100</td>
+                <td>500</td>
+                <td>500</td>
+                <td>0</td>
+                <td>2026-09-14</td>
+                <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
+                <td>7/29~8/11裁管→8/12皂化 →8/12待凹頭 →8/20擴管→8/25抽管→8/27切頭尾 →校直 → 8/28待CNC2→ 研磨 →九井QPQ→碳刷→包裝 </td>
+                <td>猛展1150525</td>
+            </tr>
+        
+            <tr class="yellow">
+                <td>20260727003-02</td>
+                <td>達建</td>
+                <td>M5GSTAE1345C100</td>
+                <td>500</td>
+                <td>500</td>
+                <td>0</td>
+                <td>2026-09-14</td>
+                <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
+                <td>7/29~8/11裁管→8/12皂化→8/12待凹頭→8/20擴管→8/25抽管→8/27切頭尾→輪圓頭+倒角→校直→8/28待CNC(右)→無心研磨→九井 QPQ→內徑碳刷→包裝</td>
+                <td>猛展1150525</td>
+            </tr>
+        
+            <tr class="yellow">
+                <td>20260825001</td>
+                <td>達建</td>
+                <td>M5GST7EE318E100</td>
+                <td>312</td>
+                <td>312</td>
+                <td>0</td>
+                <td>2026-09-15</td>
+                <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
+                <td>8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
+                <td>達建提供</td>
+            </tr>
+        
+            <tr class="yellow">
+                <td>20260825003</td>
+                <td>達建</td>
+                <td>M5GST7EA318E100</td>
+                <td>230</td>
+                <td>230</td>
+                <td>0</td>
+                <td>2026-09-15</td>
+                <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
+                <td>8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
+                <td>達建提供</td>
+            </tr>
+        
+            <tr class="yellow">
+                <td>20260825002</td>
+                <td>達建</td>
+                <td>M5GST7EE318E100</td>
+                <td>198</td>
+                <td>198</td>
+                <td>0</td>
+                <td>2026-09-15</td>
+                <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
+                <td>8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
+                <td>達建提供</td>
+            </tr>
+        
+            <tr class="yellow">
+                <td>0367</td>
+                <td>裕誠</td>
+                <td>2036990</td>
+                <td>163</td>
+                <td>163</td>
+                <td>0</td>
+                <td>2026-09-11</td>
+                <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
+                <td>8/31搪磨</td>
+                <td></td>
+            </tr>
+        
+            <tr class="yellow">
+                <td>20260825004</td>
+                <td>達建</td>
+                <td>M5GST7EA318E100</td>
+                <td>51</td>
+                <td>51</td>
+                <td>0</td>
+                <td>2026-09-15</td>
+                <td><span class="badge badge-yellow">🟡 黃燈 (7天內到期)</span></td>
+                <td>8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
+                <td>達建提供</td>
+            </tr>
+        
+            <tr class="green">
+                <td>1150806043-2</td>
+                <td>安大</td>
+                <td>50475723-0T366</td>
+                <td>12,500</td>
+                <td>12,500</td>
+                <td>0</td>
+                <td>2026-11-10</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/10待裁管→裁管+倒角→皂化→7/21凹頭→7/22抽管1→皂化→7/23抽2→切頭尾→折角→整形→修頭→7/31滾花→8/7皮膜→8/7包裝</td>
+                <td>猛展1150525
+猛展1150813
+(1150809)</td>
+            </tr>
+        
+            <tr class="green">
+                <td>1150610005-1</td>
+                <td>安大</td>
+                <td>50475723-0T366</td>
+                <td>10,500</td>
+                <td>7,300</td>
+                <td>0</td>
+                <td>2026-09-25</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>6/30~7/20裁管→裁管+倒角→皂化→7/21凹頭→7/22抽管1→皂化→7/23抽2→切頭尾→折角→整形→修頭→7/31滾花→8/7皮膜→8/11包裝</td>
+                <td>逢聯TM11506-001
+(1150610)
+逢聯TM11504-001
+(1150615-整直重新入庫)
+逢聯TM11506-001邊料藍漆
+(1150620)</td>
+            </tr>
+        
+            <tr class="green">
+                <td>1150806043-1</td>
+                <td>安大</td>
+                <td>50475723-0T366</td>
+                <td>5,000</td>
+                <td>5,000</td>
+                <td>0</td>
+                <td>2026-10-19</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>6/30~7/20裁管→裁管+倒角→皂化→7/21凹頭→7/22抽管1→皂化→7/23抽2→切頭尾→折角→整形→修頭→7/31滾花→8/7皮膜→8/12待包裝</td>
+                <td>逢聯TM11506-001邊料藍漆
+(1150620)
+猛展1150525(1017)</td>
             </tr>
         
             <tr class="green">
@@ -1278,7 +1010,8 @@ VFF1-040P</td>
                 <td>0</td>
                 <td>2026-10-05</td>
                 <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
-                <td>生產中/整修中</td>
+                <td>7/24~8/31裁管→凹頭→9/1待抽1→擴管 →抽2 →整形1 →6/16整形2 →切頭尾 →折角 →整形3 →修頭 →整形4 →滾花→皮膜→包裝</td>
+                <td>逢聯TM11507-012邊料</td>
             </tr>
         
             <tr class="green">
@@ -1290,7 +1023,10 @@ VFF1-040P</td>
                 <td>0</td>
                 <td>2026-09-28</td>
                 <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
-                <td>生產中/整修中</td>
+                <td>7/16~8/24裁管→凹頭→8/25待抽1→擴管 →抽2 →整形1 →6/16整形2 →切頭尾 →折角 →整形3 →修頭 →整形4 →滾花→皮膜→包裝</td>
+                <td>逢聯TM11507-012噴黃漆
+逢聯TM11507-012邊料
+(1150714)</td>
             </tr>
         
             <tr class="green">
@@ -1302,7 +1038,10 @@ VFF1-040P</td>
                 <td>0</td>
                 <td>2026-10-26</td>
                 <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
-                <td>生產中/整修中</td>
+                <td>7/24待裁管→凹頭→抽1→擴管 →抽2 →整形1 →6/16整形2 →切頭尾 →折角 →整形3 →修頭 →整形4 →滾花→皮膜→包裝</td>
+                <td>逢聯TM11507-012邊料
+(1150714-5)
+逢聯TM11507-012</td>
             </tr>
         
             <tr class="green">
@@ -1314,7 +1053,177 @@ VFF1-040P</td>
                 <td>0</td>
                 <td>2026-10-09</td>
                 <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
-                <td>生產中/整修中</td>
+                <td>8/6鼎泰入料→8/7富裕勝皂化→8/11凹頭→8/13抽1 →擴管  →8/17富裕勝-退火皂化→8/25抽2 →抽3→8/27整形1→8/27整形2→8/31歐鋒 T4 T76 →校直→切頭尾→CNC→滾花→宏欣→竣淵 →包裝</td>
+                <td>鼎泰1150806</td>
+            </tr>
+        
+            <tr class="green">
+                <td>POW0041779-1</td>
+                <td>賀氏</td>
+                <td>066291-L002</td>
+                <td>2,000</td>
+                <td>2,000</td>
+                <td>0</td>
+                <td>2026-10-15</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/25裁管(8/26)→8/27待CNC1+CNC2(2天)(9/7)→誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
+                <td>宏康1150506</td>
+            </tr>
+        
+            <tr class="green">
+                <td>POW0041820-3</td>
+                <td>賀氏</td>
+                <td>066291-L002</td>
+                <td>2,000</td>
+                <td>2,000</td>
+                <td>0</td>
+                <td>2026-11-13</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/25裁管(8/27)→校直→8/28待CNC1→ CNC2→誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
+                <td></td>
+            </tr>
+        
+            <tr class="green">
+                <td>1150707024-1</td>
+                <td>安大</td>
+                <td>50647800-280</td>
+                <td>1,100</td>
+                <td>1,100</td>
+                <td>0</td>
+                <td>2026-09-30</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/6鼎泰入料→8/7富裕勝皂化→8/11凹頭→8/13抽1 →擴管  →8/17富裕勝-退火皂化→8/25抽2 →8/26抽3→整形1→8/27整形2→8/31歐鋒 T4 T76 →校直→切頭尾→CNC→滾花→宏欣→竣淵 →包裝</td>
+                <td>鼎泰1150806</td>
+            </tr>
+        
+            <tr class="green">
+                <td>POW0041779-2</td>
+                <td>賀氏</td>
+                <td>124-31037</td>
+                <td>1,000</td>
+                <td>1,000</td>
+                <td>0</td>
+                <td>2026-10-05</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/25裁管(輪斷機裁)→8/31CNC1+CNC2(2天)(9/3)→誠光(無心研磨→硬鉻→無心研磨)→包裝 </td>
+                <td>宏康1150506</td>
+            </tr>
+        
+            <tr class="green">
+                <td>POW0041640-1</td>
+                <td>賀氏</td>
+                <td>122-35328-L001</td>
+                <td>1,000</td>
+                <td>1,000</td>
+                <td>0</td>
+                <td>2026-10-15</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>6/24裁管→校直→6/24CNC1(6/26) →CNC2(6/29) →6/29铣床→7/2除毛邊→8/4誠光-研磨+硬鉻+研磨 →8/24待包裝</td>
+                <td>宏康1140225</td>
+            </tr>
+        
+            <tr class="green">
+                <td>POW0041862-1</td>
+                <td>賀氏</td>
+                <td>066291-L001</td>
+                <td>1,000</td>
+                <td>1,000</td>
+                <td>0</td>
+                <td>2026-10-23</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>裁管(8/27)→校直→8/28待CNC1~2→誠光(無心研磨-硬鉻-無心研磨) →包裝 2/20</td>
+                <td>宏康1150506</td>
+            </tr>
+        
+            <tr class="green">
+                <td>1150415005-1</td>
+                <td>安大</td>
+                <td>50633442BK0T366</td>
+                <td>1,000</td>
+                <td>1,000</td>
+                <td>0</td>
+                <td>2026-10-26</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>5/19鼎泰進料→5/19富裕勝-皂化→5/21凹頭→束管→抽1→水美皂化 (有裂管才送)→抽2→切頭尾→擴管→5/25歐鋒T4T76→6/2校直→6/10CNC左→6/10CNC2右→6/10CNC3外徑→6/22滾花→6/23宏欣-噴砂→6/25竣淵陽極→6/30包裝 </td>
+                <td>鼎泰1150519</td>
+            </tr>
+        
+            <tr class="green">
+                <td>POW0041779-3</td>
+                <td>賀氏</td>
+                <td>122-35328-L006</td>
+                <td>1,000</td>
+                <td>1,000</td>
+                <td>0</td>
+                <td>2026-10-29</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/12裁管(8/28) →校直 →8/14待CNC1 → CNC2 → 铣床 →除毛邊→誠光 研磨+硬鉻+研磨 →包裝</td>
+                <td>宏康1140225</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260626004-03</td>
+                <td>六哥</td>
+                <td>4VSBUG1-330P-234</td>
+                <td>650</td>
+                <td>650</td>
+                <td>0</td>
+                <td>2026-10-01</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td></td>
+                <td>安典1150703</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260626004-09</td>
+                <td>六哥</td>
+                <td>4VUCUG1-050P-001</td>
+                <td>650</td>
+                <td>650</td>
+                <td>0</td>
+                <td>2026-10-01</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td></td>
+                <td></td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260626004-06</td>
+                <td>六哥</td>
+                <td>4VUCUG1-040P-001</td>
+                <td>650</td>
+                <td>650</td>
+                <td>0</td>
+                <td>2026-10-01</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td></td>
+                <td></td>
+            </tr>
+        
+            <tr class="green">
+                <td>POW0041820-1</td>
+                <td>賀氏</td>
+                <td>101-24364-L002</td>
+                <td>640</td>
+                <td>640</td>
+                <td>0</td>
+                <td>2026-10-30</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/20裁管→8/21CNC1(8/26)→8/28CNC2(8/28)→9/1誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
+                <td>宏康1150226</td>
+            </tr>
+        
+            <tr class="green">
+                <td>POW0041820-2</td>
+                <td>賀氏</td>
+                <td>101-24509-L002</td>
+                <td>640</td>
+                <td>640</td>
+                <td>0</td>
+                <td>2026-10-30</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/20裁管→8/24輪圓頭→8/25CNC1(8/27)→CNC2(9/1)→誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
+                <td>宏康1150226</td>
             </tr>
         
             <tr class="green">
@@ -1326,7 +1235,8 @@ VFF1-040P</td>
                 <td>0</td>
                 <td>2026-09-30</td>
                 <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
-                <td>生產中/整修中</td>
+                <td>7/16~7/29裁管→8/5CNC1→8/11CNC2→8/21CNC3 →9/2泰昇鍍白鋅→粗搪磨 →包裝</td>
+                <td>宏康 110/07/21</td>
             </tr>
         
             <tr class="green">
@@ -1338,7 +1248,73 @@ VFF1-040P</td>
                 <td>0</td>
                 <td>2026-10-08</td>
                 <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
-                <td>生產中/整修中</td>
+                <td>727鼎泰入料→7/27富裕勝皂化→7/31凹頭 →8/抽管1→8/4抽2→8/6校直→8/7歐鋒T4→8/10校直→8/12歐鋒T6→校直→8/19待CNC1→CNC2  →CNC3→铣床→搪磨 →竣淵陽極 → 包裝</td>
+                <td>鼎泰1150727</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260706002-02</td>
+                <td>達建</td>
+                <td>M5GSTAE0315C000</td>
+                <td>500</td>
+                <td>500</td>
+                <td>0</td>
+                <td>2026-10-16</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>7/13裁管+倒角→皂化→7/17凹頭 →7/21抽管→7/27切頭尾→7/28校直 →7/30CNC 右 →8/11無心研磨 →8/12九井QPQ→8/18碳刷 →8/21包裝</td>
+                <td>猛展1150525</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260706002-04</td>
+                <td>達建</td>
+                <td>M5GSTAE1315C000</td>
+                <td>500</td>
+                <td>500</td>
+                <td>0</td>
+                <td>2026-10-16</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>7/13裁管+倒角→皂化→7/17凹頭 →7/21抽管→7/28切頭尾→7/28輪圓頭+倒角 →7/28校直 →7/30CNC右 →8/11無心研磨 →8/12九井QPQ →8/18碳刷 →8/19待包裝</td>
+                <td>猛展1150525</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260717-2(03)</td>
+                <td>百兆</td>
+                <td>23H3A-006A-168</td>
+                <td>400</td>
+                <td>400</td>
+                <td>0</td>
+                <td>2026-09-21</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/7裁管→8/14凹頭→8/21校直→8/25CNC1→CNC2(9/7)→誠光-無心研磨→硬鉻→無心研磨→包裝</td>
+                <td>逢聯TM11507-012</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260717-1(02)</td>
+                <td>百兆</td>
+                <td>23H3R-002A121.8</td>
+                <td>400</td>
+                <td>400</td>
+                <td>0</td>
+                <td>2026-09-21</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/7裁管→8/14凹頭→抽管→8/21校直→8/25CNC1(8/26)→CNC2→CNC3→銑床→包裝</td>
+                <td>逢聯TM11505-001</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260717(03)</td>
+                <td>百兆</td>
+                <td>23H3A-007-135</td>
+                <td>400</td>
+                <td>400</td>
+                <td>0</td>
+                <td>2026-09-21</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/7裁管→8/14凹頭→抽管→8/20校直→8/25CNC1→CNC2→銑床→包裝</td>
+                <td>國鏟111/11/10</td>
             </tr>
         
             <tr class="green">
@@ -1350,7 +1326,8 @@ VFF1-040P</td>
                 <td>0</td>
                 <td>2026-10-01</td>
                 <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
-                <td>生產中/整修中</td>
+                <td>7/3安典進料→7/15昊崴-槍鑽→8/5CNC2→8/27CNC3 →8/28CNC4→铣床→泰昇-鍍黑鋅→ 鐳雕→包裝</td>
+                <td>安典1150703</td>
             </tr>
         
             <tr class="green">
@@ -1362,7 +1339,8 @@ VFF1-040P</td>
                 <td>0</td>
                 <td>2026-10-01</td>
                 <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
-                <td>生產中/整修中</td>
+                <td>7/17國鏟入料→7/27裁管→8/12輪圓頭→8/14CNC1→8/14CNC2→8/28誠光-研磨→松漢CP→鐳雕→包裝</td>
+                <td>國鏟1150717</td>
             </tr>
         
             <tr class="green">
@@ -1374,7 +1352,47 @@ VFF1-040P</td>
                 <td>0</td>
                 <td>2026-10-01</td>
                 <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
-                <td>生產中/整修中</td>
+                <td>7/17國鏟入料→7/27裁管→8/12輪圓頭→8/14CNC1~2→8/28誠光研磨→松漢CP→鐳雕→包裝</td>
+                <td>國鏟11500717</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260811005-02</td>
+                <td>六哥</td>
+                <td>4VSBTB1-430P-157</td>
+                <td>334</td>
+                <td>334</td>
+                <td>0</td>
+                <td>2026-11-03</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>待鼎泰入料→富裕勝→凹頭→束管→抽1→抽2 →切頭尾→擴管→歐鋒→校直→CNC1→CNC2→CNC3→滾花→竣淵→鐳雕→包裝</td>
+                <td></td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260811006-02</td>
+                <td>六哥</td>
+                <td>4VUCTB1-340P-HB1</td>
+                <td>334</td>
+                <td>334</td>
+                <td>0</td>
+                <td>2026-11-03</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>待鼎泰入料→富裕勝-皂化 → 凹頭 → 抽1 → 抽2 →歐鋒-T4T76 → 校直 →CNC左 → CNC右 → CNC外徑 →搪磨→無心研磨 →巨品-硬陽黑色 →鐳雕 →包裝</td>
+                <td></td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260811006-04</td>
+                <td>六哥</td>
+                <td>4VUCTB1-350P-HB1</td>
+                <td>334</td>
+                <td>334</td>
+                <td>0</td>
+                <td>2026-11-03</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>待鼎泰入料→富裕勝-皂化 → 凹頭 → 抽1 → 抽2 →歐鋒-T4T76 → 校直 →CNC左 → CNC右 → CNC外徑 →搪磨→無心研磨 →巨品-硬陽黑色 →鐳雕 →包裝</td>
+                <td></td>
             </tr>
         
             <tr class="green">
@@ -1386,7 +1404,126 @@ VFF1-040P</td>
                 <td>0</td>
                 <td>2026-10-07</td>
                 <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
-                <td>生產中/整修中</td>
+                <td>7/27鼎泰進料 →7/29CNC1 →8/4昊崴-槍鑽 →8/31待 CNC3 (右側) → CNC5 (左側) →铣床 → 竣淵-陽極黑色 →凌葳-鐳雕 → 包裝</td>
+                <td></td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260708006-02</td>
+                <td>六哥</td>
+                <td>4VCSFF1-270P-001</td>
+                <td>250</td>
+                <td>250</td>
+                <td>0</td>
+                <td>2026-10-01</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/12待裁管 → 8/20修面倒角→8/24待無心研磨 →8/28待包裝</td>
+                <td>國鏟1111110</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260717-2(01)</td>
+                <td>百兆</td>
+                <td>23H3A-006A-133</td>
+                <td>200</td>
+                <td>200</td>
+                <td>0</td>
+                <td>2026-09-21</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/7裁管→8/14凹頭→8/21校直→8/25CNC1→CNC2(9/7)→誠光-無心研磨→硬鉻→無心研磨→包裝</td>
+                <td>逢聯TM11505-001</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260717-2(02)</td>
+                <td>百兆</td>
+                <td>23H3A-006A-138</td>
+                <td>200</td>
+                <td>200</td>
+                <td>0</td>
+                <td>2026-09-21</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/7裁管→8/14凹頭→8/21校直→8/25CNC1→CNC2(9/7)→誠光-無心研磨→硬鉻→無心研磨→包裝</td>
+                <td>逢聯TM11505-001</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260717-2(04)</td>
+                <td>百兆</td>
+                <td>23H3A-006A-183</td>
+                <td>200</td>
+                <td>200</td>
+                <td>0</td>
+                <td>2026-09-21</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/7裁管→8/14凹頭→8/21校直→8/25CNC1→CNC2(9/7)→誠光-無心研磨→硬鉻→無心研磨→包裝</td>
+                <td>逢聯TM11505-001(144L)
+逢聯TM11507-012邊料(118L)</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260717-1(01)</td>
+                <td>百兆</td>
+                <td>23H3R-002A111.8</td>
+                <td>200</td>
+                <td>200</td>
+                <td>0</td>
+                <td>2026-09-21</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/7裁管→8/14凹頭→抽管→8/21校直→8/25CNC1(8/28)→CNC2→銑床→包裝</td>
+                <td>逢聯TM11507-012</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260717-1(03)</td>
+                <td>百兆</td>
+                <td>23H3R-002A136.8</td>
+                <td>200</td>
+                <td>200</td>
+                <td>0</td>
+                <td>2026-09-21</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/7裁管→8/14凹頭→抽管→8/21校直→8/25CNC1(8/28)→CNC2→銑床→包裝</td>
+                <td>逢聯TM11505-001</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260717(01)</td>
+                <td>百兆</td>
+                <td>23H3A-007-100</td>
+                <td>200</td>
+                <td>200</td>
+                <td>0</td>
+                <td>2026-09-21</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/7裁管→8/14凹頭→抽管→8/20校直→8/25CNC1→CNC2→銑床→包裝</td>
+                <td>國鏟111/11/10</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260717(02)</td>
+                <td>百兆</td>
+                <td>23H3A-007-105</td>
+                <td>200</td>
+                <td>200</td>
+                <td>0</td>
+                <td>2026-09-21</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/7裁管→8/14凹頭→抽管→8/20校直→8/25CNC1→CNC2→銑床→包裝</td>
+                <td>國鏟111/11/10</td>
+            </tr>
+        
+            <tr class="green">
+                <td>20260717(04)</td>
+                <td>百兆</td>
+                <td>23H3A-007-150</td>
+                <td>200</td>
+                <td>200</td>
+                <td>0</td>
+                <td>2026-09-21</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/7裁管→8/14凹頭→抽管→8/20校直→8/25CNC1→CNC2→銑床→包裝</td>
+                <td>國鏟111/11/10</td>
             </tr>
         
             <tr class="green">
@@ -1398,247 +1535,160 @@ VFF1-040P</td>
                 <td>0</td>
                 <td>2026-09-30</td>
                 <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
-                <td>生產中/整修中</td>
+                <td>8/7裁管→8/11CNC1→8/14待CNC2 →泰昇鍍白鋅→搪磨 →包裝</td>
+                <td>宏康100/03/10
+(1150514)</td>
             </tr>
         
-            <tr class="pending">
-                <td>20260715001-08</td>
+            <tr class="green">
+                <td>20260811006-01</td>
                 <td>六哥</td>
-                <td>4VSBTB1-230P275</td>
-                <td>2,152</td>
-                <td>2,152</td>
+                <td>4VUCTB1-340P-HB1</td>
+                <td>166</td>
+                <td>166</td>
                 <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>2026-10-08</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/19裁管→8/31富裕勝-皂化 →8/26凹頭 → 抽1 →8/31富裕勝-皂化→8/26待抽2 →歐鋒-T4T76 → 校直 →CNC左 → CNC右 → CNC外徑 →無心研磨 →巨品-硬陽黑色 → 鐳雕 → 包裝</td>
+                <td>金昌隆1030127
+墨達思1150615</td>
             </tr>
         
-            <tr class="pending">
-                <td>20260715001-05</td>
+            <tr class="green">
+                <td>20260811006-03</td>
                 <td>六哥</td>
-                <td>4VSBTB1-230P275</td>
-                <td>2,000</td>
-                <td>2,000</td>
+                <td>4VUCTB1-350P-HB1</td>
+                <td>166</td>
+                <td>166</td>
                 <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>2026-10-08</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/19裁管→8/31富裕勝-皂化 →8/21待凹頭 → 抽1 → 抽2 →歐鋒-T4T76 → 校直 →CNC左 → CNC右 → CNC外徑 →搪磨→無心研磨 →巨品-硬陽黑色 →鐳雕 →包裝</td>
+                <td>金昌隆1030127
+墨達思1150615</td>
             </tr>
         
-            <tr class="pending">
-                <td>POW0041530-1</td>
-                <td>賀氏</td>
-                <td>066291-L002</td>
-                <td>2,000</td>
-                <td>2,000</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>POW0041530-2</td>
-                <td>賀氏</td>
-                <td>066291-L002</td>
-                <td>2,000</td>
-                <td>2,000</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>20260715001-10</td>
+            <tr class="green">
+                <td>20260811005-01</td>
                 <td>六哥</td>
-                <td>4VSBTB1-230P275</td>
-                <td>1,776</td>
-                <td>1,776</td>
+                <td>4VSBTB1-430P-157</td>
+                <td>166</td>
+                <td>166</td>
                 <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>2026-10-08</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/6裁管→8/11富裕勝→8/13凹頭→束管→抽1→抽2 →8/19切頭尾→擴管→8/20歐鋒→8/26校直→8/28待CNC1→CNC2→CNC3→滾花→竣淵→鐳雕→包裝</td>
+                <td>廣宥1111125</td>
             </tr>
         
-            <tr class="pending">
-                <td>20260715001-11</td>
+            <tr class="green">
+                <td>20260708006-04</td>
                 <td>六哥</td>
-                <td>4VSBTB1-230P275</td>
-                <td>1,344</td>
-                <td>1,344</td>
+                <td>4VCSFG1-070P-001</td>
+                <td>70</td>
+                <td>70</td>
                 <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>2026-10-01</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>待貼箱</td>
+                <td>金昌隆1130513</td>
             </tr>
         
-            <tr class="pending">
-                <td>20260715001-07</td>
+            <tr class="green">
+                <td>20260708006-03</td>
                 <td>六哥</td>
-                <td>4VSBTB1-230P275</td>
-                <td>1,344</td>
-                <td>1,344</td>
+                <td>4VCSFG1-060P-001</td>
+                <td>70</td>
+                <td>70</td>
                 <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>2026-10-01</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>待貼箱</td>
+                <td></td>
             </tr>
         
-            <tr class="pending">
-                <td>POW0041564-1</td>
-                <td>賀氏</td>
-                <td>122-29259</td>
-                <td>1,000</td>
-                <td>1,000</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>POW0041640-1</td>
-                <td>賀氏</td>
-                <td>122-35328-L001</td>
-                <td>1,000</td>
-                <td>1,000</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>20260525001-01</td>
+            <tr class="green">
+                <td>20260717007-03</td>
                 <td>六哥</td>
-                <td>4VSBRF1-06AP-079</td>
-                <td>700</td>
-                <td>700</td>
+                <td>7VSB20210322004
+VTB1-430P-260</td>
+                <td>35</td>
+                <td>35</td>
                 <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>2026-09-24</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>廣宥料→8/11富裕勝→8/13凹頭→束管→抽1→抽2 →切頭尾→擴管→8/20歐鋒→8/26校直→8/27待CNC1→CNC2→CNC3→滾花→竣淵→鐳雕→包裝</td>
+                <td>廣宥1110322
+廣宥1111125</td>
             </tr>
         
-            <tr class="pending">
-                <td>20260626004-03</td>
+            <tr class="green">
+                <td>20260804004-01</td>
                 <td>六哥</td>
-                <td>4VSBUG1-330P-234</td>
-                <td>650</td>
-                <td>650</td>
+                <td>7VBLEM1-380P001
+4VEM1-380P</td>
+                <td>30</td>
+                <td>30</td>
                 <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>2026-09-22</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>待至信入料→包裝</td>
+                <td></td>
             </tr>
         
-            <tr class="pending">
-                <td>20260626004-09</td>
+            <tr class="green">
+                <td>20260708005-10</td>
                 <td>六哥</td>
-                <td>4VUCUG1-050P-001</td>
-                <td>650</td>
-                <td>650</td>
+                <td>4VSBFG1-330P-170</td>
+                <td>10</td>
+                <td>10</td>
                 <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>2026-10-01</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>待貼箱</td>
+                <td></td>
             </tr>
         
-            <tr class="pending">
-                <td>20260626004-06</td>
+            <tr class="green">
+                <td>20260804004-04</td>
                 <td>六哥</td>
-                <td>4VUCUG1-040P-001</td>
-                <td>650</td>
-                <td>650</td>
+                <td>7VUCEM1-120P001
+(4VEM1-120P)</td>
+                <td>2</td>
+                <td>2</td>
                 <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>2026-09-22</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/6裁管→8/11富裕勝(退火+皂化)→8/13待抽1→抽2→8/20校直→8/20歐鋒→8/26校直→8/27待CNC→無心研磨→巨品→拋光→包裝</td>
+                <td>墨達思1150615</td>
             </tr>
         
-            <tr class="pending">
-                <td>POW0041484-1</td>
-                <td>賀氏</td>
-                <td>066291-L002</td>
-                <td>2,000</td>
-                <td>299</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>20260708006-02</td>
+            <tr class="green">
+                <td>20260804004-05</td>
                 <td>六哥</td>
-                <td>4VCSFF1-270P-001</td>
-                <td>250</td>
-                <td>250</td>
+                <td>7VUCEM1-130P001
+(4VEM1-130P)  </td>
+                <td>2</td>
+                <td>2</td>
                 <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>2026-09-22</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/6裁管→8/13富裕勝(退火+皂化)→8/13待抽1→抽2→8/20校直→8/20歐鋒→8/26校直→8/27待CNC→搪磨→巨品→包裝</td>
+                <td>友懋1040727</td>
             </tr>
         
-            <tr class="pending">
-                <td>20250814006</td>
-                <td>達建</td>
-                <td>M5GTINL110E100</td>
-                <td>182</td>
-                <td>177</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>20260527006-02</td>
+            <tr class="green">
+                <td>20260804004-02</td>
                 <td>六哥</td>
-                <td>4VCSFF1-270P-001</td>
-                <td>160</td>
-                <td>160</td>
+                <td>7VCUEM1-370P001
+(4VEM1-370P)</td>
+                <td>1</td>
+                <td>1</td>
                 <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>20260626004-01</td>
-                <td>六哥</td>
-                <td>4VSBUG1-330P-234</td>
-                <td>140</td>
-                <td>140</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>20260626004-07</td>
-                <td>六哥</td>
-                <td>4VUCUG1-050P-001</td>
-                <td>140</td>
-                <td>140</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>20260626004-04</td>
-                <td>六哥</td>
-                <td>4VUCUG1-040P-001</td>
-                <td>140</td>
-                <td>140</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>2026-09-22</td>
+                <td><span class="badge badge-green">🟢 綠燈 (正常)</span></td>
+                <td>8/7~8/13裁管→8/13待CNC→8/31竣淵→包裝</td>
+                <td>金昌隆1011225</td>
             </tr>
         
             <tr class="pending">
@@ -1648,178 +1698,122 @@ VFF1-040P</td>
                 <td>100</td>
                 <td>100</td>
                 <td>60</td>
-                <td>NaT</td>
+                <td>暫停</td>
                 <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td></td>
+                <td>客戶反映DLC鍍層有磨損，待確認。
+新芳  112.12.11 進料
+新芳 1130412  NO 000225</td>
             </tr>
         
             <tr class="pending">
-                <td>20260708006-04</td>
-                <td>六哥</td>
-                <td>4VCSFG1-070P-001</td>
-                <td>70</td>
-                <td>70</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>20260708006-03</td>
-                <td>六哥</td>
-                <td>4VCSFG1-060P-001</td>
-                <td>70</td>
-                <td>70</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
+                <td></td>
                 <td>詮盈</td>
                 <td>13-307-0440</td>
                 <td>60</td>
                 <td>60</td>
                 <td>0</td>
-                <td>NaT</td>
+                <td>待通知</td>
                 <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>11/24勝盟訂料→11/24裁管→11/25CNC1→CNC2</td>
+                <td>勝盟1141124</td>
             </tr>
         
             <tr class="pending">
-                <td>nan</td>
+                <td></td>
                 <td>詮盈</td>
                 <td>13-307-0420</td>
                 <td>60</td>
                 <td>60</td>
                 <td>0</td>
-                <td>NaT</td>
+                <td>待通知</td>
                 <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>11/24勝盟訂料→11/24裁管→11/25CNC1→CNC2</td>
+                <td>勝盟1141124</td>
             </tr>
         
             <tr class="pending">
-                <td>nan</td>
+                <td></td>
                 <td>詮盈</td>
                 <td>13-307-0430</td>
                 <td>60</td>
                 <td>60</td>
                 <td>0</td>
-                <td>NaT</td>
+                <td>待通知</td>
                 <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>11/24勝盟訂料→11/24裁管→11/25CNC1→CNC2</td>
+                <td>勝盟1111124</td>
             </tr>
         
             <tr class="pending">
-                <td>樣品無訂單
-(測試用)</td>
-                <td>賀氏</td>
-                <td>066291-L002</td>
-                <td>50</td>
-                <td>50</td>
+                <td>測試用</td>
+                <td>速聯</td>
+                <td>25.4015.016.265</td>
+                <td>38</td>
+                <td>38</td>
                 <td>0</td>
-                <td>NaT</td>
+                <td>測試用</td>
                 <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>8/19~8/25裁管→皂化 →8/26凹頭 →8/31抽1→長信(退火)→噴砂+皂化→抽2 →切頭尾 → 擴+整 →折角→整型→頭→長信熱處理→皂化 →整+滾→皮膜→鐳雕 →包裝</td>
+                <td>猛展1150813
+</td>
             </tr>
         
             <tr class="pending">
-                <td>nan</td>
+                <td>樣品</td>
                 <td>詮盈</td>
                 <td>MS-118-A</td>
                 <td>30</td>
                 <td>30</td>
                 <td>0</td>
-                <td>NaT</td>
+                <td>待通知</td>
                 <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>11/6裁管→11/17拴揮
+原料退回校直11/25回</td>
+                <td>宏康1141105</td>
             </tr>
         
             <tr class="pending">
-                <td>nan</td>
+                <td>樣品</td>
                 <td>詮盈</td>
                 <td>MS-117-A</td>
                 <td>30</td>
                 <td>30</td>
                 <td>0</td>
-                <td>NaT</td>
+                <td>待通知</td>
                 <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>11/6裁管→11/17拴揮
+原料退回校直11/25回</td>
+                <td>宏康1141105</td>
             </tr>
         
             <tr class="pending">
-                <td>nan</td>
+                <td>樣品</td>
                 <td>詮盈</td>
                 <td>MS-116-A</td>
                 <td>30</td>
                 <td>30</td>
                 <td>0</td>
-                <td>NaT</td>
+                <td>待通知</td>
                 <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>11/6裁管→11/17拴揮
+原料退回校直11/25回</td>
+                <td>宏康1141105</td>
             </tr>
         
             <tr class="pending">
-                <td>nan</td>
+                <td></td>
                 <td>金佑測試品</td>
                 <td>樣品</td>
                 <td>30</td>
                 <td>30</td>
                 <td>0</td>
-                <td>NaT</td>
+                <td></td>
                 <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>20260527006-03</td>
-                <td>六哥</td>
-                <td>4VCSFG1-060P-001</td>
-                <td>10</td>
-                <td>10</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>20260527006-04</td>
-                <td>六哥</td>
-                <td>4VCSFG1-070P-001</td>
-                <td>10</td>
-                <td>10</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>20260708005-10</td>
-                <td>六哥</td>
-                <td>4VSBFG1-330P-170</td>
-                <td>10</td>
-                <td>10</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>20260527005-01</td>
-                <td>六哥</td>
-                <td>4VSBFG1-330P-170</td>
-                <td>5</td>
-                <td>5</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>5/22 裁管 → 皂化 → 5/23 凹頭 → 5/24 抽1 → 皂化 → 5/28 抽2 → 7/10 修尾端 → 7/11 整型1立式 → 7/11 整型2 → 7/11 抽心 → 7/11 切頭尾 → 7/12 折角 → 7/12 整型3 → 7/12 修唇徑 → 7/12 整型4 → 7/12 滾花 → 7/12 皮膜 → 7/18~7/30 包裝</td>
+                <td>猛展 1020614
+成品做15支 剩下做到整型2 
+不做切頭尾,留作半成品庫存</td>
             </tr>
         
             <tr class="pending">
@@ -1829,9 +1823,10 @@ VFF1-040P</td>
                 <td>2</td>
                 <td>2</td>
                 <td>4</td>
-                <td>NaT</td>
+                <td>暫停</td>
                 <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>1/15 飛興*9 → 1/17 CNC</td>
+                <td>1/17 飛興拉刀*2 未回</td>
             </tr>
         
             <tr class="pending">
@@ -1842,334 +1837,12 @@ VFF1-040P</td>
                 <td>5</td>
                 <td>2</td>
                 <td>43</td>
-                <td>NaT</td>
+                <td>暫停</td>
                 <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>合匯</td>
-                <td>00-123-99-RM2</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>RST</td>
-                <td>M5GST24AH4XXXX100</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>待補單</td>
-                <td>立盟</td>
-                <td>WT000654</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>詮盈</td>
-                <td>13-307-0400(總合)
-真空瓶13-307-0410</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>六哥</td>
-                <td>4VUCDJ111777-00D</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>六哥</td>
-                <td>VEF1-330P-310</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>338</td>
-                <td>六哥</td>
-                <td>4VUCDJ111777-00C</td>
-                <td>0</td>
-                <td>0</td>
-                <td>83</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>安大</td>
-                <td>50475737A-0T326</td>
-                <td>0</td>
-                <td>0</td>
-                <td>104</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>安大</td>
-                <td>50475737A-0T326</td>
-                <td>0</td>
-                <td>0</td>
-                <td>2</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>達建</td>
-                <td>M5GSTAE0315C000</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>六哥</td>
-                <td>4VSBDJ1-2312A27A</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>金佑</td>
-                <td>JY-0001-AA</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>達建</td>
-                <td>M5GST2LE350E100</td>
-                <td>0</td>
-                <td>0</td>
-                <td>36</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>達建</td>
-                <td>M5GST2LE350E100</td>
-                <td>0</td>
-                <td>0</td>
-                <td>34</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>達建</td>
-                <td>M5GST2LE350E100</td>
-                <td>0</td>
-                <td>0</td>
-                <td>26</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>達建</td>
-                <td>M5GST2LE350E100</td>
-                <td>0</td>
-                <td>0</td>
-                <td>26</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>達建</td>
-                <td>M5GST2LE350E100</td>
-                <td>0</td>
-                <td>0</td>
-                <td>19</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>達建</td>
-                <td>M5GST2LA350E100</td>
-                <td>0</td>
-                <td>0</td>
-                <td>32</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>達建</td>
-                <td>M5GST2LA350E100</td>
-                <td>0</td>
-                <td>0</td>
-                <td>32</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>達建</td>
-                <td>M5GST2LA350E100</td>
-                <td>0</td>
-                <td>0</td>
-                <td>24</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>達建</td>
-                <td>M5GST2LA350E100</td>
-                <td>0</td>
-                <td>0</td>
-                <td>24</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>達建</td>
-                <td>M5GST2LA350E100</td>
-                <td>0</td>
-                <td>0</td>
-                <td>17</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>六哥</td>
-                <td>4VUCFG1-040P-BB1</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
-            </tr>
-        
-            <tr class="pending">
-                <td>nan</td>
-                <td>nan</td>
-                <td>nan</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>NaT</td>
-                <td><span class="badge badge-gray">⚪ 待確認</span></td>
-                <td>生產中/整修中</td>
+                <td>1/9 CNC →  1/16 昊崴-槍鑽 → 1/29  CNC *50</td>
+                <td>1/5 安典進料 昊崴槍鑽50支
+铣孔時取7支製作  43支留著先不做
+要上油</td>
             </tr>
         
         </table>

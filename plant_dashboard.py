@@ -4,44 +4,50 @@ from datetime import datetime
 
 def main():
     base_dir = r"C:\Users\JIN YOU\Desktop\AI賦能智造製造業數據驅動與人機協作實戰\GITHUB TEST\資料來源"
-    db_excel = os.path.join(base_dir, "生管", "資料庫遷移結果", "生管資料庫遷移結果.xlsx")
+    excel_path = os.path.join(base_dir, "訂單-複製(25).xlsx")
     
-    if not os.path.exists(db_excel):
-        print(f"File not found: {db_excel}")
+    if not os.path.exists(excel_path):
+        print(f"File not found: {excel_path}")
         return
 
-    orders_df = pd.read_excel(db_excel, sheet_name="orders")
+    print(f"正在讀取訂單檔案：{excel_path} (僅讀取分頁：訂單)")
+    orders_df = pd.read_excel(excel_path, sheet_name="訂單")
     
     # Clean numeric columns
-    orders_df['order_qty_num'] = pd.to_numeric(orders_df['order_qty'], errors='coerce').fillna(0)
-    orders_df['unshipped_qty_num'] = pd.to_numeric(orders_df['unshipped_qty'], errors='coerce').fillna(0)
-    orders_df['produced_qty_num'] = pd.to_numeric(orders_df['produced_qty'], errors='coerce').fillna(0)
+    orders_df['order_qty_num'] = pd.to_numeric(orders_df['訂單數量'], errors='coerce').fillna(0)
+    orders_df['unshipped_num'] = pd.to_numeric(orders_df['未交'], errors='coerce').fillna(0)
+    orders_df['produced_num'] = pd.to_numeric(orders_df['生產數量'], errors='coerce').fillna(0)
 
-    # Filter: Exclude shipped orders (keep only active un-shipped orders where status != '已出貨')
-    active_orders = orders_df[orders_df['status'] != '已出貨'].copy()
+    # Filter: Only keep rows where unshipped > 0
+    active_orders = orders_df[orders_df['unshipped_num'] > 0].copy()
 
-    # Use actual today's date for dynamic risk evaluation
     ref_date = pd.Timestamp.today().normalize()
     
-    def calculate_risk(date_val):
+    def parse_and_calculate_risk(date_val):
         if pd.isna(date_val):
-            return "PENDING"
+            return "PENDING", ""
         try:
-            d = pd.to_datetime(date_val)
+            date_str = str(date_val).split('\n')[0].strip()
+            d = pd.to_datetime(date_str, errors='coerce')
+            if pd.isna(d):
+                return "PENDING", str(date_val)
+            
             delta_days = (d - ref_date).days
             if delta_days < 0:
-                return "RED-OVERDUE"
+                return "RED-OVERDUE", d.strftime('%Y-%m-%d')
             elif delta_days <= 7:
-                return "YELLOW-7DAYS"
+                return "YELLOW-7DAYS", d.strftime('%Y-%m-%d')
             else:
-                return "GREEN-NORMAL"
+                return "GREEN-NORMAL", d.strftime('%Y-%m-%d')
         except:
-            return "PENDING"
+            return "PENDING", str(date_val)
 
-    active_orders['risk_level'] = active_orders['promised_date'].apply(calculate_risk)
+    risk_results = active_orders['交貨日'].apply(parse_and_calculate_risk)
+    active_orders['risk_level'] = [r[0] for r in risk_results]
+    active_orders['clean_date'] = [r[1] for r in risk_results]
 
-    summary_df = active_orders[['order_no', 'customer_id', 'product_id', 'order_qty_num', 'unshipped_qty_num', 'produced_qty_num', 'promised_date', 'risk_level', 'status']].copy()
-    summary_df.columns = ['訂單編號', '客戶', '產品圖號', '訂單數量', '未交數量', '已生產數量', '預定交貨日', '交期風險燈號', '訂單狀態']
+    summary_df = active_orders[['訂單號碼', '客戶', '圖號', 'order_qty_num', 'unshipped_num', 'produced_num', 'clean_date', 'risk_level', '製程現況', '備註']].copy()
+    summary_df.columns = ['訂單編號', '客戶', '產品圖號', '訂單數量', '未交數量', '已生產數量', '預定交貨日', '交期風險燈號', '製程現況', '備註']
 
     risk_order = {"RED-OVERDUE": 1, "YELLOW-7DAYS": 2, "GREEN-NORMAL": 3, "PENDING": 4}
     summary_df['risk_sort'] = summary_df['交期風險燈號'].map(risk_order)
@@ -51,7 +57,7 @@ def main():
     output_csv_path = os.path.join(os.path.dirname(__file__), "plant_summary_dashboard.csv")
     summary_df.to_csv(output_csv_path, index=False, encoding='utf-8-sig')
 
-    # Save styled HTML report with color highlighting
+    # Save styled HTML report
     output_html_path = os.path.join(os.path.dirname(__file__), "plant_summary_dashboard.html")
     
     html_content = f"""
@@ -64,7 +70,7 @@ def main():
             body {{ font-family: "Microsoft JhengHei", Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }}
             h2 {{ color: #333; }}
             table {{ border-collapse: collapse; width: 100%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }}
-            th, td {{ border: 1px solid #dee2e6; padding: 10px 12px; text-align: left; }}
+            th, td {{ border: 1px solid #dee2e6; padding: 10px 12px; text-align: left; font-size: 14px; }}
             th {{ background-color: #343a40; color: white; }}
             tr.red {{ background-color: #f8d7da; color: #721c24; font-weight: bold; }}
             tr.yellow {{ background-color: #fff3cd; color: #856404; }}
@@ -78,8 +84,8 @@ def main():
         </style>
     </head>
     <body>
-        <h2>廠務未交訂單交期風險即時看板</h2>
-        <p>評估基準日（今日）：<strong>{ref_date.strftime('%Y-%m-%d')}</strong> | 進行中未交訂單總計：<strong>{len(summary_df)}</strong> 筆</p>
+        <h2>廠務未交訂單交期風險即時看板 (訂單分頁)</h2>
+        <p>評估基準日（今日）：<strong>{ref_date.strftime('%Y-%m-%d')}</strong> | 未交訂單總計：<strong>{len(summary_df)}</strong> 筆</p>
         <table>
             <tr>
                 <th>訂單編號</th>
@@ -90,7 +96,8 @@ def main():
                 <th>已生產數量</th>
                 <th>預定交貨日</th>
                 <th>交期風險燈號</th>
-                <th>訂單狀態</th>
+                <th>製程現況</th>
+                <th>備註</th>
             </tr>
     """
 
@@ -115,15 +122,16 @@ def main():
 
         html_content += f"""
             <tr class="{tr_class}">
-                <td>{row['訂單編號']}</td>
-                <td>{row['客戶']}</td>
-                <td>{row['產品圖號']}</td>
+                <td>{row['訂單編號'] if pd.notna(row['訂單編號']) else ''}</td>
+                <td>{row['客戶'] if pd.notna(row['客戶']) else ''}</td>
+                <td>{row['產品圖號'] if pd.notna(row['產品圖號']) else ''}</td>
                 <td>{row['訂單數量']:,.0f}</td>
                 <td>{row['未交數量']:,.0f}</td>
                 <td>{row['已生產數量']:,.0f}</td>
-                <td>{str(row['預定交貨日']).split(' ')[0]}</td>
+                <td>{row['預定交貨日']}</td>
                 <td><span class="badge {badge_class}">{risk_text}</span></td>
-                <td>{row['訂單狀態']}</td>
+                <td>{row['製程現況'] if pd.notna(row['製程現況']) else ''}</td>
+                <td>{row['備註'] if pd.notna(row['備註']) else ''}</td>
             </tr>
         """
 
