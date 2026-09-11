@@ -4,6 +4,15 @@ import pandas as pd
 import openpyxl
 from datetime import datetime
 
+def clean_uncompleted_text(text):
+    if not text:
+        return ''
+    # Strip leading arrows, spaces, dashes until first alphanumeric or Chinese character
+    match = re.search(r'[A-Za-z0-9\u4e00-\u9fa5]', text)
+    if match:
+        return text[match.start():]
+    return text.strip()
+
 def main():
     base_dir = r"C:\Users\JIN YOU\Desktop\AI賦能智造製造業數據驅動與人機協作實戰\GITHUB TEST\資料來源"
     
@@ -39,7 +48,6 @@ def main():
         
         uncompleted_parts = []
         
-        # If the entire cell font color is green, it's fully completed -> uncompleted is empty
         if '00B050' in cell_color or '008000' in cell_color or 'FF00B050' in cell_color:
             uncompleted_parts = []
         elif hasattr(val, '__iter__') and not isinstance(val, str):
@@ -49,17 +57,17 @@ def main():
                 else:
                     text = getattr(block, 'text', str(block))
                     color = block.font.color.rgb if hasattr(block, 'font') and block.font and block.font.color else 'None'
-                    # Keep uncompleted if NOT green
                     if not ('00B050' in str(color) or '008000' in str(color) or 'FF00B050' in str(color)):
                         uncompleted_parts.append(text)
         else:
-            # If entire cell is red or plain text without green parts
             if 'FF0000' in cell_color or 'FFFF0000' in cell_color or cell_color == 'None':
                 uncompleted_parts.append(str(val) if pd.notna(val) else '')
             else:
                 uncompleted_parts = []
             
-        uncompleted_col.append(''.join(uncompleted_parts).strip())
+        raw_text = ''.join(uncompleted_parts).strip()
+        cleaned_text = clean_uncompleted_text(raw_text)
+        uncompleted_col.append(cleaned_text)
 
     orders_df['未完成製程'] = uncompleted_col
 
