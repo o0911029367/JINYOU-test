@@ -4,13 +4,24 @@ from datetime import datetime
 
 def main():
     base_dir = r"C:\Users\JIN YOU\Desktop\AI賦能智造製造業數據驅動與人機協作實戰\GITHUB TEST\資料來源"
-    excel_path = os.path.join(base_dir, "訂單-複製(25).xlsx")
     
-    if not os.path.exists(excel_path):
-        print(f"File not found: {excel_path}")
+    if not os.path.exists(base_dir):
+        print(f"Directory not found: {base_dir}")
         return
 
-    print(f"正在讀取訂單檔案：{excel_path} (僅讀取分頁：訂單)")
+    # Dynamic file scanning: find any Excel file containing '訂單' in its filename
+    excel_path = None
+    for fname in os.listdir(base_dir):
+        if '訂單' in fname and fname.endswith('.xlsx') and not fname.startswith('~$'):
+            excel_path = os.path.join(base_dir, fname)
+            print(f"自動識別到訂單檔案：{fname}")
+            break
+
+    if not excel_path:
+        print(f"Error:找不到包含 '訂單' 字眼的 Excel 檔案於 {base_dir}")
+        return
+
+    print(f"正在讀取檔案：{excel_path} (僅讀取分頁：訂單)")
     orders_df = pd.read_excel(excel_path, sheet_name="訂單")
     
     # Clean numeric columns
