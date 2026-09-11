@@ -17,8 +17,8 @@ def main():
     orders_df['unshipped_qty_num'] = pd.to_numeric(orders_df['unshipped_qty'], errors='coerce').fillna(0)
     orders_df['produced_qty_num'] = pd.to_numeric(orders_df['produced_qty'], errors='coerce').fillna(0)
 
-    # Filter: Only keep orders with unshipped quantity > 0
-    active_orders = orders_df[orders_df['unshipped_qty_num'] > 0].copy()
+    # Filter: Exclude shipped orders (keep only active un-shipped orders where status != '已出貨')
+    active_orders = orders_df[orders_df['status'] != '已出貨'].copy()
 
     ref_date = pd.to_datetime('2026-06-15')
     
@@ -46,12 +46,12 @@ def main():
     summary_df['risk_sort'] = summary_df['交期風險燈號'].map(risk_order)
     summary_df = summary_df.sort_values(by=['risk_sort', '未交數量'], ascending=[True, False]).drop(columns=['risk_sort'])
 
-    print(f"\n--- Plant Unshipped Orders Risk Dashboard ({len(summary_df)} records) ---")
+    print(f"\n--- Plant Active Unshipped Orders Dashboard ({len(summary_df)} records) ---")
     print(summary_df[['訂單編號', '客戶', '未交數量', '預定交貨日', '交期風險燈號']].head(15).to_string(index=False))
 
     output_report_path = os.path.join(os.path.dirname(__file__), "plant_summary_dashboard.csv")
     summary_df.to_csv(output_report_path, index=False, encoding='utf-8-sig')
-    print(f"\nSuccessfully updated risk summary report: {output_report_path}")
+    print(f"\nSuccessfully updated active unshipped report: {output_report_path}")
 
 if __name__ == "__main__":
     main()
