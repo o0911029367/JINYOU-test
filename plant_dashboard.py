@@ -22,11 +22,11 @@ def main():
         print(f"Error:找不到訂單 Excel 檔案於 {base_dir}")
         return
 
-    print(f"正在讀取檔案與整理資料：{excel_path}")
+    print(f"正在讀取檔案與解析製程色塊：{excel_path}")
     
     orders_df = pd.read_excel(excel_path, sheet_name="訂單")
 
-    # Read rich text colors for column T
+    # Read rich text / cell font colors for column T
     wb = openpyxl.load_workbook(excel_path, data_only=True, rich_text=True)
     sheet = wb['訂單']
     
@@ -35,19 +35,29 @@ def main():
     for r in range(2, len(orders_df) + 2):
         cell = sheet.cell(row=r, column=20)
         val = cell.value
+        cell_color = str(cell.font.color.rgb) if cell.font and cell.font.color else 'None'
+        
         uncompleted_parts = []
         
-        if hasattr(val, '__iter__') and not isinstance(val, str):
+        # If the entire cell font color is green, it's fully completed -> uncompleted is empty
+        if '00B050' in cell_color or '008000' in cell_color or 'FF00B050' in cell_color:
+            uncompleted_parts = []
+        elif hasattr(val, '__iter__') and not isinstance(val, str):
             for block in val:
                 if isinstance(block, str):
                     uncompleted_parts.append(block)
                 else:
                     text = getattr(block, 'text', str(block))
                     color = block.font.color.rgb if hasattr(block, 'font') and block.font and block.font.color else 'None'
-                    if not ('00B050' in str(color) or '008000' in str(color)):
+                    # Keep uncompleted if NOT green
+                    if not ('00B050' in str(color) or '008000' in str(color) or 'FF00B050' in str(color)):
                         uncompleted_parts.append(text)
         else:
-            uncompleted_parts.append(str(val) if pd.notna(val) else '')
+            # If entire cell is red or plain text without green parts
+            if 'FF0000' in cell_color or 'FFFF0000' in cell_color or cell_color == 'None':
+                uncompleted_parts.append(str(val) if pd.notna(val) else '')
+            else:
+                uncompleted_parts = []
             
         uncompleted_col.append(''.join(uncompleted_parts).strip())
 
