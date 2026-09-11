@@ -1,4 +1,5 @@
 import os
+import re
 import pandas as pd
 import openpyxl
 from datetime import datetime
@@ -55,7 +56,21 @@ def main():
     # Clean numeric columns
     orders_df['order_qty_num'] = pd.to_numeric(orders_df['訂單數量'], errors='coerce').fillna(0)
     orders_df['unshipped_num'] = pd.to_numeric(orders_df['未交'], errors='coerce').fillna(0)
-    orders_df['produced_num'] = pd.to_numeric(orders_df['生產數量'], errors='coerce').fillna(0)
+
+    # Parse production qty from column R (生產數量) summing numbers before hyphen
+    def parse_production_qty(val):
+        if pd.isna(val):
+            return 0.0
+        text = str(val)
+        total = 0.0
+        matches = re.findall(r'(\d+)\s*-[^\d\n]*', text)
+        if not matches:
+            matches = re.findall(r'(\d+)\s*-', text)
+        for m in matches:
+            total += float(m)
+        return total
+
+    orders_df['produced_num'] = orders_df['生產數量'].apply(parse_production_qty)
 
     # Filter 1: Only keep rows where unshipped > 0
     active_orders = orders_df[orders_df['unshipped_num'] > 0].copy()
