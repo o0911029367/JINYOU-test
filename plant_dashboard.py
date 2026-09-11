@@ -20,7 +20,8 @@ def main():
     # Filter: Exclude shipped orders (keep only active un-shipped orders where status != '已出貨')
     active_orders = orders_df[orders_df['status'] != '已出貨'].copy()
 
-    ref_date = pd.to_datetime('2026-06-15')
+    # Use actual today's date for dynamic risk evaluation
+    ref_date = pd.Timestamp.today().normalize()
     
     def calculate_risk(date_val):
         if pd.isna(date_val):
@@ -53,32 +54,32 @@ def main():
     # Save styled HTML report with color highlighting
     output_html_path = os.path.join(os.path.dirname(__file__), "plant_summary_dashboard.html")
     
-    html_content = """
+    html_content = f"""
     <!DOCTYPE html>
     <html>
     <head>
         <meta charset="utf-8">
         <title>廠務未交訂單交期風險看板</title>
         <style>
-            body { font-family: "Microsoft JhengHei", Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }
-            h2 { color: #333; }
-            table { border-collapse: collapse; width: 100%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-            th, td { border: 1px solid #dee2e6; padding: 10px 12px; text-align: left; }
-            th { background-color: #343a40; color: white; }
-            tr.red { background-color: #f8d7da; color: #721c24; font-weight: bold; }
-            tr.yellow { background-color: #fff3cd; color: #856404; }
-            tr.green { background-color: #d4edda; color: #155724; }
-            tr.pending { background-color: #e2e3e5; color: #383d41; }
-            .badge { padding: 4px 8px; border-radius: 4px; font-size: 12px; }
-            .badge-red { background: #dc3545; color: white; }
-            .badge-yellow { background: #ffc107; color: black; }
-            .badge-green { background: #28a745; color: white; }
-            .badge-gray { background: #6c757d; color: white; }
+            body {{ font-family: "Microsoft JhengHei", Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }}
+            h2 {{ color: #333; }}
+            table {{ border-collapse: collapse; width: 100%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }}
+            th, td {{ border: 1px solid #dee2e6; padding: 10px 12px; text-align: left; }}
+            th {{ background-color: #343a40; color: white; }}
+            tr.red {{ background-color: #f8d7da; color: #721c24; font-weight: bold; }}
+            tr.yellow {{ background-color: #fff3cd; color: #856404; }}
+            tr.green {{ background-color: #d4edda; color: #155724; }}
+            tr.pending {{ background-color: #e2e3e5; color: #383d41; }}
+            .badge {{ padding: 4px 8px; border-radius: 4px; font-size: 12px; }}
+            .badge-red {{ background: #dc3545; color: white; }}
+            .badge-yellow {{ background: #ffc107; color: black; }}
+            .badge-green {{ background: #28a745; color: white; }}
+            .badge-gray {{ background: #6c757d; color: white; }}
         </style>
     </head>
     <body>
         <h2>廠務未交訂單交期風險即時看板</h2>
-        <p>基準日：2026-06-15 | 進行中未交訂單總計：<strong>""" + str(len(summary_df)) + """</strong> 筆</p>
+        <p>評估基準日（今日）：<strong>{ref_date.strftime('%Y-%m-%d')}</strong> | 進行中未交訂單總計：<strong>{len(summary_df)}</strong> 筆</p>
         <table>
             <tr>
                 <th>訂單編號</th>
