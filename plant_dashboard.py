@@ -18,8 +18,22 @@ def main():
     orders_df['unshipped_num'] = pd.to_numeric(orders_df['未交'], errors='coerce').fillna(0)
     orders_df['produced_num'] = pd.to_numeric(orders_df['生產數量'], errors='coerce').fillna(0)
 
-    # Filter: Only keep rows where unshipped > 0
+    # Filter 1: Only keep rows where unshipped > 0
     active_orders = orders_df[orders_df['unshipped_num'] > 0].copy()
+
+    # Filter 2: Exclude non-production items (e.g. contain '暫停', '樣品', '待', '未排', '停' in 交貨日)
+    exclude_keywords = ['暫停', '樣品', '待', '未排', '停']
+    
+    def is_valid_delivery_date(val):
+        if pd.isna(val):
+            return False
+        s = str(val)
+        for kw in exclude_keywords:
+            if kw in s:
+                return False
+        return True
+
+    active_orders = active_orders[active_orders['交貨日'].apply(is_valid_delivery_date)].copy()
 
     ref_date = pd.Timestamp.today().normalize()
     
@@ -84,8 +98,8 @@ def main():
         </style>
     </head>
     <body>
-        <h2>廠務未交訂單交期風險即時看板 (訂單分頁)</h2>
-        <p>評估基準日（今日）：<strong>{ref_date.strftime('%Y-%m-%d')}</strong> | 未交訂單總計：<strong>{len(summary_df)}</strong> 筆</p>
+        <h2>廠務生產現場未交訂單看板 (已過濾暫停/樣品/待通知)</h2>
+        <p>評估基準日（今日）：<strong>{ref_date.strftime('%Y-%m-%d')}</strong> | 現場生產執行未交訂單總計：<strong>{len(summary_df)}</strong> 筆</p>
         <table>
             <tr>
                 <th>訂單編號</th>
