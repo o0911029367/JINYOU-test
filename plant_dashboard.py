@@ -21,33 +21,44 @@ def main():
         print(f"Error:找不到訂單 Excel 檔案於 {base_dir}")
         return
 
-    print(f"正在讀取檔案與解析 Excel 字型顏色：{excel_path}")
+    print(f"正在讀取檔案與解析 Rich Text 色彩分拆製程：{excel_path}")
     
-    # 1. Read with openpyxl to get font colors of Column T (col 20, index 19)
-    wb = openpyxl.load_workbook(excel_path, data_only=True)
+    # 2. Read with pandas first to get exact row count
+    orders_df = pd.read_excel(excel_path, sheet_name="訂單")
+
+    # 1. Read with openpyxl (rich_text=True) to extract green (completed) vs red (uncompleted) parts of Column T (col 20)
+    wb = openpyxl.load_workbook(excel_path, data_only=True, rich_text=True)
     sheet = wb['訂單']
     
-    color_dict = {} # row_idx -> color_code
-    for r in range(2, sheet.max_row + 1):
-        cell = sheet.cell(row=r, column=20)
-        color = cell.font.color.rgb if cell.font and cell.font.color else 'None'
-        color_dict[r - 2] = str(color) # pandas DataFrame index offset
-
-    # 2. Read with pandas
-    orders_df = pd.read_excel(excel_path, sheet_name="訂單")
+    completed_col = []
+    uncompleted_col = []
     
-    # Attach process color status
-    process_statuses = []
-    for idx, row in orders_df.iterrows():
-        c = color_dict.get(idx, 'None')
-        if '00B050' in c or '008000' in c or 'FF00B050' in c:
-            process_statuses.append("🟢 已完成")
-        elif 'FF0000' in c or 'FFFF0000' in c:
-            process_statuses.append("🔴 未完成/進行中")
+    for r in range(2, len(orders_df) + 2):
+        cell = sheet.cell(row=r, column=20)
+        val = cell.value
+        completed_parts = []
+        uncompleted_parts = []
+        
+        if hasattr(val, '__iter__') and not isinstance(val, str):
+            for block in val:
+                if isinstance(block, str):
+                    uncompleted_parts.append(block)
+                else:
+                    text = getattr(block, 'text', str(block))
+                    color = block.font.color.rgb if hasattr(block, 'font') and block.font and block.font.color else 'None'
+                    if '00B050' in str(color) or '008000' in str(color):
+                        completed_parts.append(text)
+                    else:
+                        uncompleted_parts.append(text)
         else:
-            process_statuses.append("⚪ 進行中")
+            # Fallback if plain string
+            uncompleted_parts.append(str(val) if pd.notna(val) else '')
+            
+        completed_col.append(''.join(completed_parts).strip())
+        uncompleted_col.append(''.join(uncompleted_parts).strip())
 
-    orders_df['process_color_status'] = process_statuses
+    orders_df['已完成製程'] = completed_col
+    orders_df['未完成製程'] = uncompleted_col
 
     # Clean numeric columns
     orders_df['order_qty_num'] = pd.to_numeric(orders_df['訂單數量'], errors='coerce').fillna(0)
@@ -96,8 +107,8 @@ def main():
     active_orders['risk_level'] = [r[0] for r in risk_results]
     active_orders['clean_date'] = [r[1] for r in risk_results]
 
-    summary_df = active_orders[['訂單號碼', '客戶', '圖號', 'order_qty_num', 'unshipped_num', 'produced_num', 'clean_date', 'risk_level', 'process_color_status', '製程現況', '備註']].copy()
-    summary_df.columns = ['訂單編號', '客戶', '產品圖號', '訂單數量', '未交數量', '已生產數量', '預定交貨日', '交期風險燈號', '製程執行狀態', '製程現況', '備註']
+    summary_df = active_orders[['訂單號碼', '客戶', '圖號', 'order_qty_num', 'unshipped_num', 'produced_num', 'clean_date', 'risk_level', '已完成製程', '未完成製程', '備註']].copy()
+    summary_df.columns = ['訂單編號', '客戶', '產品圖號', '訂單數量', '未交數量', '已生產數量', '預定交貨日', '交期風險燈號', '已完成製程', '未完成製程', '備註']
 
     risk_order = {"RED-OVERDUE": 1, "YELLOW-7DAYS": 2, "GREEN-NORMAL": 3, "PENDING": 4}
     summary_df['risk_sort'] = summary_df['交期風險燈號'].map(risk_order)
@@ -115,12 +126,12 @@ def main():
     <html>
     <head>
         <meta charset="utf-8">
-        <title>廠務未交訂單交期風險看板</title>
+        <title>廠務未交訂單交期與製程進度看板</title>
         <style>
             body {{ font-family: "Microsoft JhengHei", Arial, sans-serif; margin: 20px; background-color: #f8f9fa; }}
             h2 {{ color: #333; }}
             table {{ border-collapse: collapse; width: 100%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }}
-            th, td {{ border: 1px solid #dee2e6; padding: 10px 12px; text-align: left; font-size: 14px; }}
+            th, td {{ border: 1px solid #dee2e6; padding: 10px 12px; text-align: left; font-size: 13px; }}
             th {{ background-color: #343a40; color: white; }}
             tr.red {{ background-color: #f8d7da; color: #721c24; font-weight: bold; }}
             tr.yellow {{ background-color: #fff3cd; color: #856404; }}
@@ -131,10 +142,12 @@ def main():
             .badge-yellow {{ background: #ffc107; color: black; }}
             .badge-green {{ background: #28a745; color: white; }}
             .badge-gray {{ background: #6c757d; color: white; }}
+            .completed-text {{ color: #155724; font-weight: 500; }}
+            .uncompleted-text {{ color: #721c24; font-weight: bold; }}
         </style>
     </head>
     <body>
-        <h2>廠務生產現場未交訂單與進度看板</h2>
+        <h2>廠務生產現場未交訂單與製程進度看板</h2>
         <p>評估基準日（今日）：<strong>{ref_date.strftime('%Y-%m-%d')}</strong> | 現場執行未交訂單總計：<strong>{len(summary_df)}</strong> 筆</p>
         <table>
             <tr>
@@ -146,8 +159,8 @@ def main():
                 <th>已生產數量</th>
                 <th>預定交貨日</th>
                 <th>交期風險燈號</th>
-                <th>製程執行狀態</th>
-                <th>製程現況細節</th>
+                <th>已完成製程 (綠字)</th>
+                <th>未完成製程 (紅字)</th>
                 <th>備註</th>
             </tr>
     """
@@ -181,8 +194,8 @@ def main():
                 <td>{row['已生產數量']:,.0f}</td>
                 <td>{row['預定交貨日']}</td>
                 <td><span class="badge {badge_class}">{risk_text}</span></td>
-                <td><strong>{row['製程執行狀態']}</strong></td>
-                <td>{row['製程現況'] if pd.notna(row['製程現況']) else ''}</td>
+                <td class="completed-text">{row['已完成製程'] if pd.notna(row['已完成製程']) else ''}</td>
+                <td class="uncompleted-text">{row['未完成製程'] if pd.notna(row['未完成製程']) else ''}</td>
                 <td>{row['備註'] if pd.notna(row['備註']) else ''}</td>
             </tr>
         """
