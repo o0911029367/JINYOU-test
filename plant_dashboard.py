@@ -110,19 +110,28 @@ def main():
     active_orders['risk_level'] = [r[0] for r in risk_results]
     active_orders['clean_date'] = [r[1] for r in risk_results]
 
-    # Reorder columns as requested: 交期風險、預交日、客戶、產品圖號、訂單號碼、未交數、生產數、未完成製程
-    summary_df = active_orders[['risk_level', 'clean_date', 'masked_customer', '圖號', '訂單號碼', 'unshipped_num', 'produced_num', '未完成製程', '已完成製程', '備註']].copy()
-    summary_df.columns = ['交期風險燈號', '預定交貨日', '客戶', '產品圖號', '訂單編號', '未交數量', '已生產數量', '未完成製程', '已完成製程', '備註']
+    # Map risk level to pure emoji lights for the first column
+    risk_symbol_map = {
+        "RED-OVERDUE": "🔴",
+        "YELLOW-7DAYS": "🟡",
+        "GREEN-NORMAL": "🟢",
+        "PENDING": "⚪"
+    }
+    active_orders['risk_symbol'] = active_orders['risk_level'].map(risk_symbol_map)
+
+    # Reorder columns: 交期風險(燈號)、預交日、客戶、產品圖號、訂單號碼、未交數、生產數、未完成製程
+    summary_df = active_orders[['risk_symbol', 'clean_date', 'masked_customer', '圖號', '訂單號碼', 'unshipped_num', 'produced_num', '未完成製程', '已完成製程', '備註', 'risk_level']].copy()
+    summary_df.columns = ['交期風險', '預定交貨日', '客戶', '產品圖號', '訂單編號', '未交數量', '已生產數量', '未完成製程', '已完成製程', '備註', 'risk_code']
 
     risk_order = {"RED-OVERDUE": 1, "YELLOW-7DAYS": 2, "GREEN-NORMAL": 3, "PENDING": 4}
-    summary_df['risk_sort'] = summary_df['交期風險燈號'].map(risk_order)
-    summary_df = summary_df.sort_values(by=['risk_sort', '未交數量'], ascending=[True, False]).drop(columns=['risk_sort'])
+    summary_df['risk_sort'] = summary_df['risk_code'].map(risk_order)
+    summary_df = summary_df.sort_values(by=['risk_sort', '未交數量'], ascending=[True, False]).drop(columns=['risk_sort', 'risk_code'])
 
     # Save CSV report
     output_csv_path = os.path.join(os.path.dirname(__file__), "plant_summary_dashboard.csv")
     summary_df.to_csv(output_csv_path, index=False, encoding='utf-8-sig')
 
-    # Save styled HTML report with interactive filtering/sorting JS
+    # Save styled HTML report
     output_html_path = os.path.join(os.path.dirname(__file__), "plant_summary_dashboard.html")
     
     html_content = f"""
@@ -145,11 +154,7 @@ def main():
             tr.yellow {{ background-color: #fff3cd; color: #856404; }}
             tr.green {{ background-color: #d4edda; color: #155724; }}
             tr.pending {{ background-color: #e2e3e5; color: #383d41; }}
-            .badge {{ padding: 4px 8px; border-radius: 4px; font-size: 12px; }}
-            .badge-red {{ background: #dc3545; color: white; }}
-            .badge-yellow {{ background: #ffc107; color: black; }}
-            .badge-green {{ background: #28a745; color: white; }}
-            .badge-gray {{ background: #6c757d; color: white; }}
+            .light-cell {{ text-align: center; font-size: 16px; }}
             .completed-text {{ color: #155724; font-weight: 500; }}
             .uncompleted-text {{ color: #721c24; font-weight: bold; }}
         </style>
@@ -219,7 +224,7 @@ def main():
         <table id="dashboardTable">
             <thead>
                 <tr>
-                    <th onclick="sortTable(0)">交期風險</th>
+                    <th onclick="sortTable(0)" style="width: 70px; text-align: center;">交期風險</th>
                     <th onclick="sortTable(1)">預交日</th>
                     <th onclick="sortTable(2)">客戶</th>
                     <th onclick="sortTable(3)">產品圖號</th>
@@ -235,27 +240,18 @@ def main():
     """
 
     for _, row in summary_df.iterrows():
-        risk = row['交期風險燈號']
+        symbol = row['交期風險']
         tr_class = "pending"
-        badge_class = "badge-gray"
-        if risk == "RED-OVERDUE":
+        if symbol == "🔴":
             tr_class = "red"
-            badge_class = "badge-red"
-            risk_text = "🔴 紅燈 (已逾期)"
-        elif risk == "YELLOW-7DAYS":
+        elif symbol == "🟡":
             tr_class = "yellow"
-            badge_class = "badge-yellow"
-            risk_text = "🟡 黃燈 (7天內)"
-        elif risk == "GREEN-NORMAL":
+        elif symbol == "🟢":
             tr_class = "green"
-            badge_class = "badge-green"
-            risk_text = "🟢 綠燈 (正常)"
-        else:
-            risk_text = "⚪ 待確認"
 
         html_content += f"""
             <tr class="{tr_class}">
-                <td><span class="badge {badge_class}">{risk_text}</span></td>
+                <td class="light-cell">{symbol}</td>
                 <td>{row['預定交貨日']}</td>
                 <td>{row['客戶']}</td>
                 <td>{row['產品圖號']}</td>
