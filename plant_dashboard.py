@@ -43,7 +43,6 @@ def main():
                 else:
                     text = getattr(block, 'text', str(block))
                     color = block.font.color.rgb if hasattr(block, 'font') and block.font and block.font.color else 'None'
-                    # Keep uncompleted (red text or default text, exclude green completed parts)
                     if not ('00B050' in str(color) or '008000' in str(color)):
                         uncompleted_parts.append(text)
         else:
@@ -128,14 +127,14 @@ def main():
     # Sort by delivery month then risk then unshipped qty
     summary_df = summary_df.sort_values(by=['delivery_month', 'risk_sort', '未交數量'], ascending=[True, True, False])
 
-    # Export columns for CSV and HTML
+    # Export columns for CSV
     export_df = summary_df[['交期風險', '預定交貨日', '客戶', '產品圖號', '訂單編號', '未交數量', '已生產數量', '未完成製程', 'delivery_month']].copy()
 
     # Save CSV report
     output_csv_path = os.path.join(os.path.dirname(__file__), "plant_summary_dashboard.csv")
     export_df.to_csv(output_csv_path, index=False, encoding='utf-8-sig')
 
-    # Save styled HTML report grouped by month
+    # Save styled HTML report grouped by month with exact column widths
     output_html_path = os.path.join(os.path.dirname(__file__), "plant_summary_dashboard.html")
     
     html_content = f"""
@@ -150,8 +149,8 @@ def main():
             h3 {{ color: #495057; margin-top: 30px; border-bottom: 2px solid #6c757d; padding-bottom: 5px; }}
             .controls {{ margin: 15px 0; display: flex; justify-content: space-between; align-items: center; }}
             .search-box {{ padding: 8px 12px; width: 300px; border: 1px solid #ced4da; border-radius: 4px; font-size: 14px; }}
-            table {{ border-collapse: collapse; width: 100%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }}
-            th, td {{ border: 1px solid #dee2e6; padding: 10px 12px; text-align: left; font-size: 13px; }}
+            table {{ border-collapse: collapse; width: 100%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; table-layout: fixed; }}
+            th, td {{ border: 1px solid #dee2e6; padding: 10px 8px; text-align: left; font-size: 13px; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; }}
             th {{ background-color: #343a40; color: white; cursor: pointer; user-select: none; position: relative; }}
             th:hover {{ background-color: #495057; }}
             tr.red {{ background-color: #f8d7da; color: #721c24; font-weight: bold; }}
@@ -160,6 +159,16 @@ def main():
             tr.pending {{ background-color: #e2e3e5; color: #383d41; }}
             .light-cell {{ text-align: center; font-size: 16px; }}
             .uncompleted-text {{ color: #721c24; font-weight: bold; }}
+            
+            /* Column Widths */
+            .col-risk {{ width: 35px; text-align: center; }}
+            .col-date {{ width: 80px; }}
+            .col-cust {{ width: 50px; }}
+            .col-part {{ width: 150px; }}
+            .col-order {{ width: 120px; }}
+            .col-unshipped {{ width: 50px; text-align: right; }}
+            .col-produced {{ width: 50px; text-align: right; }}
+            .col-uncompleted {{ width: 500px; }}
         </style>
         <script>
             function filterTable() {{
@@ -202,14 +211,14 @@ def main():
         <table class="month-table">
             <thead>
                 <tr>
-                    <th style="width: 70px; text-align: center;">交期風險</th>
-                    <th>預交日</th>
-                    <th>客戶</th>
-                    <th>產品圖號</th>
-                    <th>訂單號碼</th>
-                    <th>未交數</th>
-                    <th>生產數</th>
-                    <th>未完成製程</th>
+                    <th class="col-risk">交期風險</th>
+                    <th class="col-date">預交日</th>
+                    <th class="col-cust">客戶</th>
+                    <th class="col-part">產品圖號</th>
+                    <th class="col-order">訂單號碼</th>
+                    <th class="col-unshipped">未交數</th>
+                    <th class="col-produced">生產數</th>
+                    <th class="col-uncompleted">未完成製程</th>
                 </tr>
             </thead>
             <tbody>
@@ -227,14 +236,14 @@ def main():
 
             html_content += f"""
                 <tr class="{tr_class}">
-                    <td class="light-cell">{symbol}</td>
-                    <td>{row['預定交貨日']}</td>
-                    <td>{row['客戶']}</td>
-                    <td>{row['產品圖號']}</td>
-                    <td>{row['訂單編號'] if pd.notna(row['訂單編號']) else ''}</td>
-                    <td>{row['未交數量']:,.0f}</td>
-                    <td>{row['已生產數量']:,.0f}</td>
-                    <td class="uncompleted-text">{row['未完成製程'] if pd.notna(row['未完成製程']) else ''}</td>
+                    <td class="col-risk light-cell">{symbol}</td>
+                    <td class="col-date">{row['預定交貨日']}</td>
+                    <td class="col-cust">{row['客戶']}</td>
+                    <td class="col-part">{row['產品圖號']}</td>
+                    <td class="col-order">{row['訂單編號'] if pd.notna(row['訂單編號']) else ''}</td>
+                    <td class="col-unshipped">{row['未交數量']:,.0f}</td>
+                    <td class="col-produced">{row['已生產數量']:,.0f}</td>
+                    <td class="col-uncompleted uncompleted-text">{row['未完成製程'] if pd.notna(row['未完成製程']) else ''}</td>
                 </tr>
             """
         html_content += """

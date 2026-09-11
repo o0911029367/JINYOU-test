@@ -10,8 +10,8 @@
             h3 { color: #495057; margin-top: 30px; border-bottom: 2px solid #6c757d; padding-bottom: 5px; }
             .controls { margin: 15px 0; display: flex; justify-content: space-between; align-items: center; }
             .search-box { padding: 8px 12px; width: 300px; border: 1px solid #ced4da; border-radius: 4px; font-size: 14px; }
-            table { border-collapse: collapse; width: 100%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
-            th, td { border: 1px solid #dee2e6; padding: 10px 12px; text-align: left; font-size: 13px; }
+            table { border-collapse: collapse; width: 100%; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; table-layout: fixed; }
+            th, td { border: 1px solid #dee2e6; padding: 10px 8px; text-align: left; font-size: 13px; overflow: hidden; text-overflow: ellipsis; word-wrap: break-word; }
             th { background-color: #343a40; color: white; cursor: pointer; user-select: none; position: relative; }
             th:hover { background-color: #495057; }
             tr.red { background-color: #f8d7da; color: #721c24; font-weight: bold; }
@@ -20,6 +20,16 @@
             tr.pending { background-color: #e2e3e5; color: #383d41; }
             .light-cell { text-align: center; font-size: 16px; }
             .uncompleted-text { color: #721c24; font-weight: bold; }
+            
+            /* Column Widths */
+            .col-risk { width: 35px; text-align: center; }
+            .col-date { width: 80px; }
+            .col-cust { width: 50px; }
+            .col-part { width: 150px; }
+            .col-order { width: 120px; }
+            .col-unshipped { width: 50px; text-align: right; }
+            .col-produced { width: 50px; text-align: right; }
+            .col-uncompleted { width: 500px; }
         </style>
         <script>
             function filterTable() {
@@ -57,38 +67,38 @@
         <table class="month-table">
             <thead>
                 <tr>
-                    <th style="width: 70px; text-align: center;">交期風險</th>
-                    <th>預交日</th>
-                    <th>客戶</th>
-                    <th>產品圖號</th>
-                    <th>訂單號碼</th>
-                    <th>未交數</th>
-                    <th>生產數</th>
-                    <th>未完成製程</th>
+                    <th class="col-risk">交期風險</th>
+                    <th class="col-date">預交日</th>
+                    <th class="col-cust">客戶</th>
+                    <th class="col-part">產品圖號</th>
+                    <th class="col-order">訂單號碼</th>
+                    <th class="col-unshipped">未交數</th>
+                    <th class="col-produced">生產數</th>
+                    <th class="col-uncompleted">未完成製程</th>
                 </tr>
             </thead>
             <tbody>
         
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-07-07</td>
-                    <td>客戶 D</td>
-                    <td>4VSBRF1-06AP-079</td>
-                    <td>20260525001-01</td>
-                    <td>560</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">5/27裁管→皂化→6/2凹頭→6/10抽1→6/10CNC1~3→6/24防鏽(6/26)→7/7包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-07-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBRF1-06AP-079</td>
+                    <td class="col-order">20260525001-01</td>
+                    <td class="col-unshipped">560</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">5/27裁管→皂化→6/2凹頭→6/10抽1→6/10CNC1~3→6/24防鏽(6/26)→7/7包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-07-10</td>
-                    <td>客戶 A</td>
-                    <td>FODERO-FORK-3-WP</td>
-                    <td>S00002</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→→8/13CNC3~5→搪磨 →硬陽→包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-07-10</td>
+                    <td class="col-cust">客戶 A</td>
+                    <td class="col-part">FODERO-FORK-3-WP</td>
+                    <td class="col-order">S00002</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→→8/13CNC3~5→搪磨 →硬陽→包裝</td>
                 </tr>
             
             </tbody>
@@ -98,216 +108,216 @@
         <table class="month-table">
             <thead>
                 <tr>
-                    <th style="width: 70px; text-align: center;">交期風險</th>
-                    <th>預交日</th>
-                    <th>客戶</th>
-                    <th>產品圖號</th>
-                    <th>訂單號碼</th>
-                    <th>未交數</th>
-                    <th>生產數</th>
-                    <th>未完成製程</th>
+                    <th class="col-risk">交期風險</th>
+                    <th class="col-date">預交日</th>
+                    <th class="col-cust">客戶</th>
+                    <th class="col-part">產品圖號</th>
+                    <th class="col-order">訂單號碼</th>
+                    <th class="col-unshipped">未交數</th>
+                    <th class="col-produced">生產數</th>
+                    <th class="col-uncompleted">未完成製程</th>
                 </tr>
             </thead>
             <tbody>
         
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-06</td>
-                    <td>客戶 J</td>
-                    <td>25.4015.016.265</td>
-                    <td>73340598-01</td>
-                    <td>2,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/3待皂化 →整+滾→皮膜→鐳雕 →包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-06</td>
+                    <td class="col-cust">客戶 J</td>
+                    <td class="col-part">25.4015.016.265</td>
+                    <td class="col-order">73340598-01</td>
+                    <td class="col-unshipped">2,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/3待皂化 →整+滾→皮膜→鐳雕 →包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-14</td>
-                    <td>客戶 J</td>
-                    <td>25.4015.016.265</td>
-                    <td>73329658-02</td>
-                    <td>1,500</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">裁管→皂化 →凹頭 →抽1 →長信(退火)→噴砂+皂化→抽2 →切頭尾 → 擴+整 →折角→整型→修頭→6/15長信熱處理→6/23皂化 →6/25整+滾(6/26)→皮膜(6/30)→鐳雕(7/1)→包裝(7/1)</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-14</td>
+                    <td class="col-cust">客戶 J</td>
+                    <td class="col-part">25.4015.016.265</td>
+                    <td class="col-order">73329658-02</td>
+                    <td class="col-unshipped">1,500</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">裁管→皂化 →凹頭 →抽1 →長信(退火)→噴砂+皂化→抽2 →切頭尾 → 擴+整 →折角→整型→修頭→6/15長信熱處理→6/23皂化 →6/25整+滾(6/26)→皮膜(6/30)→鐳雕(7/1)→包裝(7/1)</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-14</td>
-                    <td>客戶 J</td>
-                    <td>25.4015.016.265</td>
-                    <td>73329658-01</td>
-                    <td>1,321</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">5/15~5/25裁管→皂化 →5/26凹頭 →抽1 →5/27長信(退火)→6/3噴砂+皂化→6/9抽2 →切頭尾 → 擴+整 →折角 →修頭→長信熱處理→皂化 →整+滾→6/10皮膜→6/11鐳雕 →包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-14</td>
+                    <td class="col-cust">客戶 J</td>
+                    <td class="col-part">25.4015.016.265</td>
+                    <td class="col-order">73329658-01</td>
+                    <td class="col-unshipped">1,321</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">5/15~5/25裁管→皂化 →5/26凹頭 →抽1 →5/27長信(退火)→6/3噴砂+皂化→6/9抽2 →切頭尾 → 擴+整 →折角 →修頭→長信熱處理→皂化 →整+滾→6/10皮膜→6/11鐳雕 →包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-26</td>
-                    <td>客戶 C</td>
-                    <td>M5GST252FB340E000</td>
-                    <td>20260731004</td>
-                    <td>1,236</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/27硬陽黑色→麻輪 →包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-26</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST252FB340E000</td>
+                    <td class="col-order">20260731004</td>
+                    <td class="col-unshipped">1,236</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/27硬陽黑色→麻輪 →包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-26</td>
-                    <td>客戶 C</td>
-                    <td>M5GST252FB340Z000</td>
-                    <td>20260731005</td>
-                    <td>1,200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">8/25硬陽金色→麻輪 →包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-26</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST252FB340Z000</td>
+                    <td class="col-order">20260731005</td>
+                    <td class="col-unshipped">1,200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">8/25硬陽金色→麻輪 →包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-21</td>
-                    <td>客戶 C</td>
-                    <td>M5GST252FB340Z000</td>
-                    <td>20260717015</td>
-                    <td>783</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/31待包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-21</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST252FB340Z000</td>
+                    <td class="col-order">20260717015</td>
+                    <td class="col-unshipped">783</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/31待包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-26</td>
-                    <td>客戶 C</td>
-                    <td>M5GST7EA318E100</td>
-                    <td>20260807004</td>
-                    <td>528</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/31包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-26</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST7EA318E100</td>
+                    <td class="col-order">20260807004</td>
+                    <td class="col-unshipped">528</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/31包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-26</td>
-                    <td>客戶 C</td>
-                    <td>M5GST7EE318E100</td>
-                    <td>20260807003</td>
-                    <td>462</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/31包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-26</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST7EE318E100</td>
+                    <td class="col-order">20260807003</td>
+                    <td class="col-unshipped">462</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/31包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-03</td>
-                    <td>客戶 D</td>
-                    <td>4VCSFF1-270P-001</td>
-                    <td>20260527006-02</td>
-                    <td>160</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-03</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VCSFF1-270P-001</td>
+                    <td class="col-order">20260527006-02</td>
+                    <td class="col-unshipped">160</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-21</td>
-                    <td>客戶 D</td>
-                    <td>4VSBUG1-330P-234</td>
-                    <td>20260626004-01</td>
-                    <td>140</td>
-                    <td>0</td>
-                    <td class="uncompleted-text"></td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-21</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBUG1-330P-234</td>
+                    <td class="col-order">20260626004-01</td>
+                    <td class="col-unshipped">140</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text"></td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-21</td>
-                    <td>客戶 D</td>
-                    <td>4VUCUG1-050P-001</td>
-                    <td>20260626004-07</td>
-                    <td>140</td>
-                    <td>0</td>
-                    <td class="uncompleted-text"></td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-21</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCUG1-050P-001</td>
+                    <td class="col-order">20260626004-07</td>
+                    <td class="col-unshipped">140</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text"></td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-21</td>
-                    <td>客戶 D</td>
-                    <td>4VUCUG1-040P-001</td>
-                    <td>20260626004-04</td>
-                    <td>140</td>
-                    <td>0</td>
-                    <td class="uncompleted-text"></td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-21</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCUG1-040P-001</td>
+                    <td class="col-order">20260626004-04</td>
+                    <td class="col-unshipped">140</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text"></td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-04</td>
-                    <td>客戶 B</td>
-                    <td>50475723-0T366</td>
-                    <td>測試品</td>
-                    <td>70</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/11待包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-04</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50475723-0T366</td>
+                    <td class="col-order">測試品</td>
+                    <td class="col-unshipped">70</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/11待包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-03</td>
-                    <td>客戶 D</td>
-                    <td>4VCSFG1-060P-001</td>
-                    <td>20260527006-03</td>
-                    <td>10</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-03</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VCSFG1-060P-001</td>
+                    <td class="col-order">20260527006-03</td>
+                    <td class="col-unshipped">10</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-03</td>
-                    <td>客戶 D</td>
-                    <td>4VCSFG1-070P-001</td>
-                    <td>20260527006-04</td>
-                    <td>10</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-03</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VCSFG1-070P-001</td>
+                    <td class="col-order">20260527006-04</td>
+                    <td class="col-unshipped">10</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-03</td>
-                    <td>客戶 D</td>
-                    <td>4VSBFG1-330P-170</td>
-                    <td>20260527005-01</td>
-                    <td>5</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-03</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBFG1-330P-170</td>
+                    <td class="col-order">20260527005-01</td>
+                    <td class="col-unshipped">5</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-31</td>
-                    <td>客戶 D</td>
-                    <td>7VCSEM1-290P001
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-31</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">7VCSEM1-290P001
 (4VEM1-290P)  </td>
-                    <td>20260804005-01</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/31竣淵→包裝</td>
+                    <td class="col-order">20260804005-01</td>
+                    <td class="col-unshipped">1</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/31竣淵→包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-08-31</td>
-                    <td>客戶 D</td>
-                    <td>7VCSEM1-300P001
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-08-31</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">7VCSEM1-300P001
 (4VEM1-300P)     </td>
-                    <td>20260804005-02</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/13待CNC→包裝</td>
+                    <td class="col-order">20260804005-02</td>
+                    <td class="col-unshipped">1</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/13待CNC→包裝</td>
                 </tr>
             
             </tbody>
@@ -317,780 +327,780 @@
         <table class="month-table">
             <thead>
                 <tr>
-                    <th style="width: 70px; text-align: center;">交期風險</th>
-                    <th>預交日</th>
-                    <th>客戶</th>
-                    <th>產品圖號</th>
-                    <th>訂單號碼</th>
-                    <th>未交數</th>
-                    <th>生產數</th>
-                    <th>未完成製程</th>
+                    <th class="col-risk">交期風險</th>
+                    <th class="col-date">預交日</th>
+                    <th class="col-cust">客戶</th>
+                    <th class="col-part">產品圖號</th>
+                    <th class="col-order">訂單號碼</th>
+                    <th class="col-unshipped">未交數</th>
+                    <th class="col-produced">生產數</th>
+                    <th class="col-uncompleted">未完成製程</th>
                 </tr>
             </thead>
             <tbody>
         
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-04</td>
-                    <td>客戶 B</td>
-                    <td>50483137A-264</td>
-                    <td>1150518004-5</td>
-                    <td>4,050</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/21皮膜→包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-04</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50483137A-264</td>
+                    <td class="col-order">1150518004-5</td>
+                    <td class="col-unshipped">4,050</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/21皮膜→包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-01</td>
-                    <td>客戶 B</td>
-                    <td>50483137A-264</td>
-                    <td>1150518004-4</td>
-                    <td>3,224</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/26包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-01</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50483137A-264</td>
+                    <td class="col-order">1150518004-4</td>
+                    <td class="col-unshipped">3,224</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/26包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VSBTB1-230P275</td>
-                    <td>20260715001-08</td>
-                    <td>2,152</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→9/1抽2 →切頭尾→擴+整 →折+整 →修+壓 →皮膜 →鐳雕 →包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBTB1-230P275</td>
+                    <td class="col-order">20260715001-08</td>
+                    <td class="col-unshipped">2,152</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→9/1抽2 →切頭尾→擴+整 →折+整 →修+壓 →皮膜 →鐳雕 →包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-01</td>
-                    <td>客戶 C</td>
-                    <td>M5GSTAH6215A20M</td>
-                    <td>20260709011-01</td>
-                    <td>1,500</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">7/10~8/4裁管 →8/12CNC兩端 →搪磨 →8/25無心研磨 →8/26松漢-CP電鍍 →8/28包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-01</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GSTAH6215A20M</td>
+                    <td class="col-order">20260709011-01</td>
+                    <td class="col-unshipped">1,500</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">7/10~8/4裁管 →8/12CNC兩端 →搪磨 →8/25無心研磨 →8/26松漢-CP電鍍 →8/28包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VSBTB1-230P275</td>
-                    <td>20260715001-07</td>
-                    <td>1,344</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/28包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBTB1-230P275</td>
+                    <td class="col-order">20260715001-07</td>
+                    <td class="col-unshipped">1,344</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/28包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VSBTB1-230P275</td>
-                    <td>20260715001-11</td>
-                    <td>1,344</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→9/1待擴+整 →折+整 →修+壓 →皮膜 →鐳雕 →包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBTB1-230P275</td>
+                    <td class="col-order">20260715001-11</td>
+                    <td class="col-unshipped">1,344</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→9/1待擴+整 →折+整 →修+壓 →皮膜 →鐳雕 →包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-10</td>
-                    <td>客戶 C</td>
-                    <td>M5GST7EA318E100</td>
-                    <td>20260820004</td>
-                    <td>528</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-10</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST7EA318E100</td>
+                    <td class="col-order">20260820004</td>
+                    <td class="col-unshipped">528</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-01</td>
-                    <td>客戶 C</td>
-                    <td>M5GST7EE318E100</td>
-                    <td>20260812001</td>
-                    <td>330</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/31待包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-01</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST7EE318E100</td>
+                    <td class="col-order">20260812001</td>
+                    <td class="col-unshipped">330</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/31待包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-01</td>
-                    <td>客戶 C</td>
-                    <td>M5GST7EA318E100</td>
-                    <td>20260812003</td>
-                    <td>327</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/31待包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-01</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST7EA318E100</td>
+                    <td class="col-order">20260812003</td>
+                    <td class="col-unshipped">327</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/31待包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VUCFG1-050P-HB1</td>
-                    <td>20260811035-06</td>
-                    <td>250</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCFG1-050P-HB1</td>
+                    <td class="col-order">20260811035-06</td>
+                    <td class="col-unshipped">250</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VUCFG1-040P-BB1</td>
-                    <td>20260611035-05</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCFG1-040P-BB1</td>
+                    <td class="col-order">20260611035-05</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VCUFG1-560P-001</td>
-                    <td>20260811035-04</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VCUFG1-560P-001</td>
+                    <td class="col-order">20260811035-04</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VBLFG1-540P-001</td>
-                    <td>20260811035-02</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VBLFG1-540P-001</td>
+                    <td class="col-order">20260811035-02</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VSBFG1-330P-173</td>
-                    <td>20260811034-01</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBFG1-330P-173</td>
+                    <td class="col-order">20260811034-01</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-10</td>
-                    <td>客戶 C</td>
-                    <td>M5GST7EE318E100</td>
-                    <td>20260820003</td>
-                    <td>198</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-10</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST7EE318E100</td>
+                    <td class="col-order">20260820003</td>
+                    <td class="col-unshipped">198</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-01</td>
-                    <td>客戶 C</td>
-                    <td>M5GST7EE318E100</td>
-                    <td>20260812002</td>
-                    <td>185</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/31待包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-01</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST7EE318E100</td>
+                    <td class="col-order">20260812002</td>
+                    <td class="col-unshipped">185</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/31待包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VUCFG1-040P-BB1</td>
-                    <td>20260708006-06</td>
-                    <td>160</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCFG1-040P-BB1</td>
+                    <td class="col-order">20260708006-06</td>
+                    <td class="col-unshipped">160</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VUCFG1-050P-HB1</td>
-                    <td>20260708006-07</td>
-                    <td>160</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCFG1-050P-HB1</td>
+                    <td class="col-order">20260708006-07</td>
+                    <td class="col-unshipped">160</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VBLFG1-540P-001</td>
-                    <td>20260708006-01</td>
-                    <td>160</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VBLFG1-540P-001</td>
+                    <td class="col-order">20260708006-01</td>
+                    <td class="col-unshipped">160</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-01</td>
-                    <td>客戶 C</td>
-                    <td>M5GST7EA318E100</td>
-                    <td>20260812004</td>
-                    <td>145</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/31待包裝</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-01</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST7EA318E100</td>
+                    <td class="col-order">20260812004</td>
+                    <td class="col-unshipped">145</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/31待包裝</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VUCFG1-040P-BB1</td>
-                    <td>20260713005-03</td>
-                    <td>100</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCFG1-040P-BB1</td>
+                    <td class="col-order">20260713005-03</td>
+                    <td class="col-unshipped">100</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VUCFG1-050P-HB1</td>
-                    <td>20260713005-04</td>
-                    <td>100</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCFG1-050P-HB1</td>
+                    <td class="col-order">20260713005-04</td>
+                    <td class="col-unshipped">100</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VBLFG1-540P-001</td>
-                    <td>20260713005-01</td>
-                    <td>100</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VBLFG1-540P-001</td>
+                    <td class="col-order">20260713005-01</td>
+                    <td class="col-unshipped">100</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VCUFG1-560P-001</td>
-                    <td>20260708006-05</td>
-                    <td>80</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VCUFG1-560P-001</td>
+                    <td class="col-order">20260708006-05</td>
+                    <td class="col-unshipped">80</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VBLFG1-540P-001</td>
-                    <td>20260721005-01</td>
-                    <td>70</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VBLFG1-540P-001</td>
+                    <td class="col-order">20260721005-01</td>
+                    <td class="col-unshipped">70</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VSBFG1-330P-173</td>
-                    <td>20260708005-02</td>
-                    <td>70</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBFG1-330P-173</td>
+                    <td class="col-order">20260708005-02</td>
+                    <td class="col-unshipped">70</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VCUFG1-560P-001</td>
-                    <td>20260713005-02</td>
-                    <td>50</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VCUFG1-560P-001</td>
+                    <td class="col-order">20260713005-02</td>
+                    <td class="col-unshipped">50</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VBLFG1-540P-001</td>
-                    <td>20260506007-04</td>
-                    <td>48</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VBLFG1-540P-001</td>
+                    <td class="col-order">20260506007-04</td>
+                    <td class="col-unshipped">48</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VSBFG1-330P-173</td>
-                    <td>20260713004-01</td>
-                    <td>40</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBFG1-330P-173</td>
+                    <td class="col-order">20260713004-01</td>
+                    <td class="col-unshipped">40</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VCUFG1-560P-001</td>
-                    <td>20260721005-02</td>
-                    <td>35</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VCUFG1-560P-001</td>
+                    <td class="col-order">20260721005-02</td>
+                    <td class="col-unshipped">35</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VCUFG1-560P-001</td>
-                    <td>20260506007-17</td>
-                    <td>24</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VCUFG1-560P-001</td>
+                    <td class="col-order">20260506007-17</td>
+                    <td class="col-unshipped">24</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VSBFG1-330P-173</td>
-                    <td>20260721004-01</td>
-                    <td>20</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBFG1-330P-173</td>
+                    <td class="col-order">20260721004-01</td>
+                    <td class="col-unshipped">20</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VBLFG1-540P-001</td>
-                    <td>20260811035-01</td>
-                    <td>8</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VBLFG1-540P-001</td>
+                    <td class="col-order">20260811035-01</td>
+                    <td class="col-unshipped">8</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
                 <tr class="red">
-                    <td class="light-cell">🔴</td>
-                    <td>2026-09-07</td>
-                    <td>客戶 D</td>
-                    <td>4VCUFG1-560P-001</td>
-                    <td>20260811035-03</td>
-                    <td>4</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🔴</td>
+                    <td class="col-date">2026-09-07</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VCUFG1-560P-001</td>
+                    <td class="col-order">20260811035-03</td>
+                    <td class="col-unshipped">4</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-16</td>
-                    <td>客戶 C</td>
-                    <td>M5GAEQHAC076</td>
-                    <td>20260525022-01</td>
-                    <td>13,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→7/3待CNC1→CNC2→CNC3→8/7铣床 →研磨→8/19硬陽-巨品→8/24待包裝</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-16</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GAEQHAC076</td>
+                    <td class="col-order">20260525022-01</td>
+                    <td class="col-unshipped">13,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→7/3待CNC1→CNC2→CNC3→8/7铣床 →研磨→8/19硬陽-巨品→8/24待包裝</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-18</td>
-                    <td>客戶 B</td>
-                    <td>50483137A-264</td>
-                    <td>1150708035-1</td>
-                    <td>4,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">8/25滾花→皮膜→包裝</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-18</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50483137A-264</td>
+                    <td class="col-order">1150708035-1</td>
+                    <td class="col-unshipped">4,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">8/25滾花→皮膜→包裝</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-15</td>
-                    <td>客戶 F</td>
-                    <td>066291-L002</td>
-                    <td>POW0041530-2</td>
-                    <td>2,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">5/29裁管(6/4)→校直→6/8CNC1→ CNC2→6/12誠光(無心研磨→硬鉻→無心研磨)→8/10包裝</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-15</td>
+                    <td class="col-cust">客戶 F</td>
+                    <td class="col-part">066291-L002</td>
+                    <td class="col-order">POW0041530-2</td>
+                    <td class="col-unshipped">2,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">5/29裁管(6/4)→校直→6/8CNC1→ CNC2→6/12誠光(無心研磨→硬鉻→無心研磨)→8/10包裝</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-18</td>
-                    <td>客戶 B</td>
-                    <td>50483137A-264</td>
-                    <td>1150617005-1</td>
-                    <td>1,500</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/24皮膜→包裝</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-18</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50483137A-264</td>
+                    <td class="col-order">1150617005-1</td>
+                    <td class="col-unshipped">1,500</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/24皮膜→包裝</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-11</td>
-                    <td>客戶 E</td>
-                    <td>2036990</td>
-                    <td>0367</td>
-                    <td>781</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">8/31搪磨</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-11</td>
+                    <td class="col-cust">客戶 E</td>
+                    <td class="col-part">2036990</td>
+                    <td class="col-order">0367</td>
+                    <td class="col-unshipped">781</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">8/31搪磨</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-14</td>
-                    <td>客戶 C</td>
-                    <td>M5GSTAE0315C000</td>
-                    <td>20260706002-01</td>
-                    <td>500</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">7/13裁管+倒角→皂化→7/17凹頭 →7/21抽管→7/27切頭尾→7/28校直 →7/30CNC 右 →8/11無心研磨 →8/12九井QPQ→8/18碳刷 →8/21包裝</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-14</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GSTAE0315C000</td>
+                    <td class="col-order">20260706002-01</td>
+                    <td class="col-unshipped">500</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">7/13裁管+倒角→皂化→7/17凹頭 →7/21抽管→7/27切頭尾→7/28校直 →7/30CNC 右 →8/11無心研磨 →8/12九井QPQ→8/18碳刷 →8/21包裝</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-14</td>
-                    <td>客戶 C</td>
-                    <td>M5GSTAE1315C000</td>
-                    <td>20260706002-03</td>
-                    <td>500</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">7/13裁管+倒角→皂化→7/17凹頭 →7/21抽管→7/28切頭尾→7/28輪圓頭+倒角 →7/28校直 →7/30CNC右 →8/11無心研磨 →8/12九井QPQ →8/18碳刷 →8/19待包裝</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-14</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GSTAE1315C000</td>
+                    <td class="col-order">20260706002-03</td>
+                    <td class="col-unshipped">500</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">7/13裁管+倒角→皂化→7/17凹頭 →7/21抽管→7/28切頭尾→7/28輪圓頭+倒角 →7/28校直 →7/30CNC右 →8/11無心研磨 →8/12九井QPQ →8/18碳刷 →8/19待包裝</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-14</td>
-                    <td>客戶 C</td>
-                    <td>M5GSTAE0345C100</td>
-                    <td>20260727003-01</td>
-                    <td>500</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→ 8/28待CNC2→ 研磨 →九井QPQ→碳刷→包裝</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-14</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GSTAE0345C100</td>
+                    <td class="col-order">20260727003-01</td>
+                    <td class="col-unshipped">500</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→ 8/28待CNC2→ 研磨 →九井QPQ→碳刷→包裝</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-14</td>
-                    <td>客戶 C</td>
-                    <td>M5GSTAE1345C100</td>
-                    <td>20260727003-02</td>
-                    <td>500</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/28待CNC(右)→無心研磨→九井 QPQ→內徑碳刷→包裝</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-14</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GSTAE1345C100</td>
+                    <td class="col-order">20260727003-02</td>
+                    <td class="col-unshipped">500</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/28待CNC(右)→無心研磨→九井 QPQ→內徑碳刷→包裝</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-15</td>
-                    <td>客戶 C</td>
-                    <td>M5GST7EE318E100</td>
-                    <td>20260825001</td>
-                    <td>312</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-15</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST7EE318E100</td>
+                    <td class="col-order">20260825001</td>
+                    <td class="col-unshipped">312</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-15</td>
-                    <td>客戶 C</td>
-                    <td>M5GST7EA318E100</td>
-                    <td>20260825003</td>
-                    <td>230</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-15</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST7EA318E100</td>
+                    <td class="col-order">20260825003</td>
+                    <td class="col-unshipped">230</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-15</td>
-                    <td>客戶 C</td>
-                    <td>M5GST7EE318E100</td>
-                    <td>20260825002</td>
-                    <td>198</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-15</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST7EE318E100</td>
+                    <td class="col-order">20260825002</td>
+                    <td class="col-unshipped">198</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-11</td>
-                    <td>客戶 E</td>
-                    <td>2036990</td>
-                    <td>0367</td>
-                    <td>163</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">8/31搪磨</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-11</td>
+                    <td class="col-cust">客戶 E</td>
+                    <td class="col-part">2036990</td>
+                    <td class="col-order">0367</td>
+                    <td class="col-unshipped">163</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">8/31搪磨</td>
                 </tr>
             
                 <tr class="yellow">
-                    <td class="light-cell">🟡</td>
-                    <td>2026-09-15</td>
-                    <td>客戶 C</td>
-                    <td>M5GST7EA318E100</td>
-                    <td>20260825004</td>
-                    <td>51</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
+                    <td class="col-risk light-cell">🟡</td>
+                    <td class="col-date">2026-09-15</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST7EA318E100</td>
+                    <td class="col-order">20260825004</td>
+                    <td class="col-unshipped">51</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">8/31研磨→巨品-硬陽黑→麻輪 →包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-25</td>
-                    <td>客戶 B</td>
-                    <td>50475723-0T366</td>
-                    <td>1150610005-1</td>
-                    <td>7,300</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">6/30~7/20裁管→裁管+倒角→皂化→7/21凹頭→7/22抽管1→皂化→7/23抽2→切頭尾→折角→整形→修頭→7/31滾花→8/7皮膜→8/11包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-25</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50475723-0T366</td>
+                    <td class="col-order">1150610005-1</td>
+                    <td class="col-unshipped">7,300</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">6/30~7/20裁管→裁管+倒角→皂化→7/21凹頭→7/22抽管1→皂化→7/23抽2→切頭尾→折角→整形→修頭→7/31滾花→8/7皮膜→8/11包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-28</td>
-                    <td>客戶 B</td>
-                    <td>50483137A-264</td>
-                    <td>1150708035-2</td>
-                    <td>4,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/25待抽1→擴管 →抽2 →整形1 →6/16整形2 →切頭尾 →折角 →整形3 →修頭 →整形4 →滾花→皮膜→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-28</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50483137A-264</td>
+                    <td class="col-order">1150708035-2</td>
+                    <td class="col-unshipped">4,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/25待抽1→擴管 →抽2 →整形1 →6/16整形2 →切頭尾 →折角 →整形3 →修頭 →整形4 →滾花→皮膜→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-30</td>
-                    <td>客戶 B</td>
-                    <td>50647800-280</td>
-                    <td>1150707024-1</td>
-                    <td>1,100</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/31歐鋒 T4 T76 →校直→切頭尾→CNC→滾花→宏欣→竣淵 →包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-30</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50647800-280</td>
+                    <td class="col-order">1150707024-1</td>
+                    <td class="col-unshipped">1,100</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/31歐鋒 T4 T76 →校直→切頭尾→CNC→滾花→宏欣→竣淵 →包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-30</td>
-                    <td>客戶 H</td>
-                    <td>LK-BD002-36*300</td>
-                    <td>00138497</td>
-                    <td>500</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">9/2泰昇鍍白鋅→粗搪磨 →包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-30</td>
+                    <td class="col-cust">客戶 H</td>
+                    <td class="col-part">LK-BD002-36*300</td>
+                    <td class="col-order">00138497</td>
+                    <td class="col-unshipped">500</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">9/2泰昇鍍白鋅→粗搪磨 →包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-21</td>
-                    <td>客戶 G</td>
-                    <td>23H3A-006A-168</td>
-                    <td>20260717-2(03)</td>
-                    <td>400</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/25CNC1→CNC2(9/7)→誠光-無心研磨→硬鉻→無心研磨→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-21</td>
+                    <td class="col-cust">客戶 G</td>
+                    <td class="col-part">23H3A-006A-168</td>
+                    <td class="col-order">20260717-2(03)</td>
+                    <td class="col-unshipped">400</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/25CNC1→CNC2(9/7)→誠光-無心研磨→硬鉻→無心研磨→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-21</td>
-                    <td>客戶 G</td>
-                    <td>23H3R-002A121.8</td>
-                    <td>20260717-1(02)</td>
-                    <td>400</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→CNC3→銑床→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-21</td>
+                    <td class="col-cust">客戶 G</td>
+                    <td class="col-part">23H3R-002A121.8</td>
+                    <td class="col-order">20260717-1(02)</td>
+                    <td class="col-unshipped">400</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→CNC3→銑床→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-21</td>
-                    <td>客戶 G</td>
-                    <td>23H3A-007-135</td>
-                    <td>20260717(03)</td>
-                    <td>400</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/25CNC1→CNC2→銑床→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-21</td>
+                    <td class="col-cust">客戶 G</td>
+                    <td class="col-part">23H3A-007-135</td>
+                    <td class="col-order">20260717(03)</td>
+                    <td class="col-unshipped">400</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/25CNC1→CNC2→銑床→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-21</td>
-                    <td>客戶 G</td>
-                    <td>23H3A-006A-133</td>
-                    <td>20260717-2(01)</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/25CNC1→CNC2(9/7)→誠光-無心研磨→硬鉻→無心研磨→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-21</td>
+                    <td class="col-cust">客戶 G</td>
+                    <td class="col-part">23H3A-006A-133</td>
+                    <td class="col-order">20260717-2(01)</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/25CNC1→CNC2(9/7)→誠光-無心研磨→硬鉻→無心研磨→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-21</td>
-                    <td>客戶 G</td>
-                    <td>23H3A-006A-138</td>
-                    <td>20260717-2(02)</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/25CNC1→CNC2(9/7)→誠光-無心研磨→硬鉻→無心研磨→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-21</td>
+                    <td class="col-cust">客戶 G</td>
+                    <td class="col-part">23H3A-006A-138</td>
+                    <td class="col-order">20260717-2(02)</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/25CNC1→CNC2(9/7)→誠光-無心研磨→硬鉻→無心研磨→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-21</td>
-                    <td>客戶 G</td>
-                    <td>23H3A-006A-183</td>
-                    <td>20260717-2(04)</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/25CNC1→CNC2(9/7)→誠光-無心研磨→硬鉻→無心研磨→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-21</td>
+                    <td class="col-cust">客戶 G</td>
+                    <td class="col-part">23H3A-006A-183</td>
+                    <td class="col-order">20260717-2(04)</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/25CNC1→CNC2(9/7)→誠光-無心研磨→硬鉻→無心研磨→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-21</td>
-                    <td>客戶 G</td>
-                    <td>23H3R-002A111.8</td>
-                    <td>20260717-1(01)</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/25CNC1(8/28)→CNC2→銑床→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-21</td>
+                    <td class="col-cust">客戶 G</td>
+                    <td class="col-part">23H3R-002A111.8</td>
+                    <td class="col-order">20260717-1(01)</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/25CNC1(8/28)→CNC2→銑床→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-21</td>
-                    <td>客戶 G</td>
-                    <td>23H3R-002A136.8</td>
-                    <td>20260717-1(03)</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/25CNC1(8/28)→CNC2→銑床→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-21</td>
+                    <td class="col-cust">客戶 G</td>
+                    <td class="col-part">23H3R-002A136.8</td>
+                    <td class="col-order">20260717-1(03)</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/25CNC1(8/28)→CNC2→銑床→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-21</td>
-                    <td>客戶 G</td>
-                    <td>23H3A-007-100</td>
-                    <td>20260717(01)</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/25CNC1→CNC2→銑床→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-21</td>
+                    <td class="col-cust">客戶 G</td>
+                    <td class="col-part">23H3A-007-100</td>
+                    <td class="col-order">20260717(01)</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/25CNC1→CNC2→銑床→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-21</td>
-                    <td>客戶 G</td>
-                    <td>23H3A-007-105</td>
-                    <td>20260717(02)</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/25CNC1→CNC2→銑床→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-21</td>
+                    <td class="col-cust">客戶 G</td>
+                    <td class="col-part">23H3A-007-105</td>
+                    <td class="col-order">20260717(02)</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/25CNC1→CNC2→銑床→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-21</td>
-                    <td>客戶 G</td>
-                    <td>23H3A-007-150</td>
-                    <td>20260717(04)</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/25CNC1→CNC2→銑床→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-21</td>
+                    <td class="col-cust">客戶 G</td>
+                    <td class="col-part">23H3A-007-150</td>
+                    <td class="col-order">20260717(04)</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/25CNC1→CNC2→銑床→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-30</td>
-                    <td>客戶 H</td>
-                    <td>LK-BD002-46*275</td>
-                    <td>00138497</td>
-                    <td>200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/14待CNC2 →泰昇鍍白鋅→搪磨 →包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-30</td>
+                    <td class="col-cust">客戶 H</td>
+                    <td class="col-part">LK-BD002-46*275</td>
+                    <td class="col-order">00138497</td>
+                    <td class="col-unshipped">200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/14待CNC2 →泰昇鍍白鋅→搪磨 →包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-24</td>
-                    <td>客戶 D</td>
-                    <td>7VSB20210322004
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-24</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">7VSB20210322004
 VTB1-430P-260</td>
-                    <td>20260717007-03</td>
-                    <td>35</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/27待CNC1→CNC2→CNC3→滾花→竣淵→鐳雕→包裝</td>
+                    <td class="col-order">20260717007-03</td>
+                    <td class="col-unshipped">35</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/27待CNC1→CNC2→CNC3→滾花→竣淵→鐳雕→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-22</td>
-                    <td>客戶 D</td>
-                    <td>7VBLEM1-380P001
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-22</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">7VBLEM1-380P001
 4VEM1-380P</td>
-                    <td>20260804004-01</td>
-                    <td>30</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待至信入料→包裝</td>
+                    <td class="col-order">20260804004-01</td>
+                    <td class="col-unshipped">30</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待至信入料→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-22</td>
-                    <td>客戶 D</td>
-                    <td>7VUCEM1-120P001
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-22</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">7VUCEM1-120P001
 (4VEM1-120P)</td>
-                    <td>20260804004-04</td>
-                    <td>2</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/27待CNC→無心研磨→巨品→拋光→包裝</td>
+                    <td class="col-order">20260804004-04</td>
+                    <td class="col-unshipped">2</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/27待CNC→無心研磨→巨品→拋光→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-22</td>
-                    <td>客戶 D</td>
-                    <td>7VUCEM1-130P001
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-22</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">7VUCEM1-130P001
 (4VEM1-130P)  </td>
-                    <td>20260804004-05</td>
-                    <td>2</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/27待CNC→搪磨→巨品→包裝</td>
+                    <td class="col-order">20260804004-05</td>
+                    <td class="col-unshipped">2</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/27待CNC→搪磨→巨品→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-09-22</td>
-                    <td>客戶 D</td>
-                    <td>7VCUEM1-370P001
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-09-22</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">7VCUEM1-370P001
 (4VEM1-370P)</td>
-                    <td>20260804004-02</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/31竣淵→包裝</td>
+                    <td class="col-order">20260804004-02</td>
+                    <td class="col-unshipped">1</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/31竣淵→包裝</td>
                 </tr>
             
             </tbody>
@@ -1100,335 +1110,335 @@ VTB1-430P-260</td>
         <table class="month-table">
             <thead>
                 <tr>
-                    <th style="width: 70px; text-align: center;">交期風險</th>
-                    <th>預交日</th>
-                    <th>客戶</th>
-                    <th>產品圖號</th>
-                    <th>訂單號碼</th>
-                    <th>未交數</th>
-                    <th>生產數</th>
-                    <th>未完成製程</th>
+                    <th class="col-risk">交期風險</th>
+                    <th class="col-date">預交日</th>
+                    <th class="col-cust">客戶</th>
+                    <th class="col-part">產品圖號</th>
+                    <th class="col-order">訂單號碼</th>
+                    <th class="col-unshipped">未交數</th>
+                    <th class="col-produced">生產數</th>
+                    <th class="col-uncompleted">未完成製程</th>
                 </tr>
             </thead>
             <tbody>
         
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-19</td>
-                    <td>客戶 B</td>
-                    <td>50475723-0T366</td>
-                    <td>1150806043-1</td>
-                    <td>5,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/12待包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-19</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50475723-0T366</td>
+                    <td class="col-order">1150806043-1</td>
+                    <td class="col-unshipped">5,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/12待包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-05</td>
-                    <td>客戶 B</td>
-                    <td>50483137A-264</td>
-                    <td>1150708035-3</td>
-                    <td>4,500</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→9/1待抽1→擴管 →抽2 →整形1 →6/16整形2 →切頭尾 →折角 →整形3 →修頭 →整形4 →滾花→皮膜→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-05</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50483137A-264</td>
+                    <td class="col-order">1150708035-3</td>
+                    <td class="col-unshipped">4,500</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→9/1待抽1→擴管 →抽2 →整形1 →6/16整形2 →切頭尾 →折角 →整形3 →修頭 →整形4 →滾花→皮膜→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-26</td>
-                    <td>客戶 B</td>
-                    <td>50483137A-264</td>
-                    <td>1150708036-1</td>
-                    <td>4,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">7/24待裁管→凹頭→抽1→擴管 →抽2 →整形1 →6/16整形2 →切頭尾 →折角 →整形3 →修頭 →整形4 →滾花→皮膜→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-26</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50483137A-264</td>
+                    <td class="col-order">1150708036-1</td>
+                    <td class="col-unshipped">4,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">7/24待裁管→凹頭→抽1→擴管 →抽2 →整形1 →6/16整形2 →切頭尾 →折角 →整形3 →修頭 →整形4 →滾花→皮膜→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-09</td>
-                    <td>客戶 B</td>
-                    <td>50647800-280</td>
-                    <td>1150707024-2</td>
-                    <td>2,200</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/31歐鋒 T4 T76 →校直→切頭尾→CNC→滾花→宏欣→竣淵 →包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-09</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50647800-280</td>
+                    <td class="col-order">1150707024-2</td>
+                    <td class="col-unshipped">2,200</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/31歐鋒 T4 T76 →校直→切頭尾→CNC→滾花→宏欣→竣淵 →包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-15</td>
-                    <td>客戶 F</td>
-                    <td>066291-L002</td>
-                    <td>POW0041779-1</td>
-                    <td>2,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/27待CNC1+CNC2(2天)(9/7)→誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-15</td>
+                    <td class="col-cust">客戶 F</td>
+                    <td class="col-part">066291-L002</td>
+                    <td class="col-order">POW0041779-1</td>
+                    <td class="col-unshipped">2,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/27待CNC1+CNC2(2天)(9/7)→誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-05</td>
-                    <td>客戶 F</td>
-                    <td>124-31037</td>
-                    <td>POW0041779-2</td>
-                    <td>1,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-05</td>
+                    <td class="col-cust">客戶 F</td>
+                    <td class="col-part">124-31037</td>
+                    <td class="col-order">POW0041779-2</td>
+                    <td class="col-unshipped">1,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-15</td>
-                    <td>客戶 F</td>
-                    <td>122-35328-L001</td>
-                    <td>POW0041640-1</td>
-                    <td>1,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/24待包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-15</td>
+                    <td class="col-cust">客戶 F</td>
+                    <td class="col-part">122-35328-L001</td>
+                    <td class="col-order">POW0041640-1</td>
+                    <td class="col-unshipped">1,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/24待包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-23</td>
-                    <td>客戶 F</td>
-                    <td>066291-L001</td>
-                    <td>POW0041862-1</td>
-                    <td>1,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/28待CNC1~2→誠光(無心研磨-硬鉻-無心研磨) →包裝 2/20</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-23</td>
+                    <td class="col-cust">客戶 F</td>
+                    <td class="col-part">066291-L001</td>
+                    <td class="col-order">POW0041862-1</td>
+                    <td class="col-unshipped">1,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/28待CNC1~2→誠光(無心研磨-硬鉻-無心研磨) →包裝 2/20</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-26</td>
-                    <td>客戶 B</td>
-                    <td>50633442BK0T366</td>
-                    <td>1150415005-1</td>
-                    <td>1,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">5/19鼎泰進料→5/19富裕勝-皂化→5/21凹頭→束管→抽1→水美皂化 (有裂管才送)→抽2→切頭尾→擴管→5/25歐鋒T4T76→6/2校直→6/10CNC左→6/10CNC2右→6/10CNC3外徑→6/22滾花→6/23宏欣-噴砂→6/25竣淵陽極→6/30包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-26</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50633442BK0T366</td>
+                    <td class="col-order">1150415005-1</td>
+                    <td class="col-unshipped">1,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">5/19鼎泰進料→5/19富裕勝-皂化→5/21凹頭→束管→抽1→水美皂化 (有裂管才送)→抽2→切頭尾→擴管→5/25歐鋒T4T76→6/2校直→6/10CNC左→6/10CNC2右→6/10CNC3外徑→6/22滾花→6/23宏欣-噴砂→6/25竣淵陽極→6/30包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-29</td>
-                    <td>客戶 F</td>
-                    <td>122-35328-L006</td>
-                    <td>POW0041779-3</td>
-                    <td>1,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/14待CNC1 → CNC2 → 铣床 →除毛邊→誠光 研磨+硬鉻+研磨 →包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-29</td>
+                    <td class="col-cust">客戶 F</td>
+                    <td class="col-part">122-35328-L006</td>
+                    <td class="col-order">POW0041779-3</td>
+                    <td class="col-unshipped">1,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/14待CNC1 → CNC2 → 铣床 →除毛邊→誠光 研磨+硬鉻+研磨 →包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-01</td>
-                    <td>客戶 D</td>
-                    <td>4VSBUG1-330P-234</td>
-                    <td>20260626004-03</td>
-                    <td>650</td>
-                    <td>0</td>
-                    <td class="uncompleted-text"></td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-01</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBUG1-330P-234</td>
+                    <td class="col-order">20260626004-03</td>
+                    <td class="col-unshipped">650</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text"></td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-01</td>
-                    <td>客戶 D</td>
-                    <td>4VUCUG1-050P-001</td>
-                    <td>20260626004-09</td>
-                    <td>650</td>
-                    <td>0</td>
-                    <td class="uncompleted-text"></td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-01</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCUG1-050P-001</td>
+                    <td class="col-order">20260626004-09</td>
+                    <td class="col-unshipped">650</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text"></td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-01</td>
-                    <td>客戶 D</td>
-                    <td>4VUCUG1-040P-001</td>
-                    <td>20260626004-06</td>
-                    <td>650</td>
-                    <td>0</td>
-                    <td class="uncompleted-text"></td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-01</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCUG1-040P-001</td>
+                    <td class="col-order">20260626004-06</td>
+                    <td class="col-unshipped">650</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text"></td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-30</td>
-                    <td>客戶 F</td>
-                    <td>101-24364-L002</td>
-                    <td>POW0041820-1</td>
-                    <td>640</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→9/1誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-30</td>
+                    <td class="col-cust">客戶 F</td>
+                    <td class="col-part">101-24364-L002</td>
+                    <td class="col-order">POW0041820-1</td>
+                    <td class="col-unshipped">640</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→9/1誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-30</td>
-                    <td>客戶 F</td>
-                    <td>101-24509-L002</td>
-                    <td>POW0041820-2</td>
-                    <td>640</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/25CNC1(8/27)→CNC2(9/1)→誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-30</td>
+                    <td class="col-cust">客戶 F</td>
+                    <td class="col-part">101-24509-L002</td>
+                    <td class="col-order">POW0041820-2</td>
+                    <td class="col-unshipped">640</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/25CNC1(8/27)→CNC2(9/1)→誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-08</td>
-                    <td>客戶 C</td>
-                    <td>M5GST1HC335N000</td>
-                    <td>20260618004</td>
-                    <td>500</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/19待CNC1→CNC2  →CNC3→铣床→搪磨 →竣淵陽極 → 包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-08</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GST1HC335N000</td>
+                    <td class="col-order">20260618004</td>
+                    <td class="col-unshipped">500</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/19待CNC1→CNC2  →CNC3→铣床→搪磨 →竣淵陽極 → 包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-16</td>
-                    <td>客戶 C</td>
-                    <td>M5GSTAE0315C000</td>
-                    <td>20260706002-02</td>
-                    <td>500</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">7/13裁管+倒角→皂化→7/17凹頭 →7/21抽管→7/27切頭尾→7/28校直 →7/30CNC 右 →8/11無心研磨 →8/12九井QPQ→8/18碳刷 →8/21包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-16</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GSTAE0315C000</td>
+                    <td class="col-order">20260706002-02</td>
+                    <td class="col-unshipped">500</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">7/13裁管+倒角→皂化→7/17凹頭 →7/21抽管→7/27切頭尾→7/28校直 →7/30CNC 右 →8/11無心研磨 →8/12九井QPQ→8/18碳刷 →8/21包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-16</td>
-                    <td>客戶 C</td>
-                    <td>M5GSTAE1315C000</td>
-                    <td>20260706002-04</td>
-                    <td>500</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">7/13裁管+倒角→皂化→7/17凹頭 →7/21抽管→7/28切頭尾→7/28輪圓頭+倒角 →7/28校直 →7/30CNC右 →8/11無心研磨 →8/12九井QPQ →8/18碳刷 →8/19待包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-16</td>
+                    <td class="col-cust">客戶 C</td>
+                    <td class="col-part">M5GSTAE1315C000</td>
+                    <td class="col-order">20260706002-04</td>
+                    <td class="col-unshipped">500</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">7/13裁管+倒角→皂化→7/17凹頭 →7/21抽管→7/28切頭尾→7/28輪圓頭+倒角 →7/28校直 →7/30CNC右 →8/11無心研磨 →8/12九井QPQ →8/18碳刷 →8/19待包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-01</td>
-                    <td>客戶 D</td>
-                    <td>4VSBUG1-330P-234</td>
-                    <td>20260626004-02</td>
-                    <td>375</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/27CNC3 →8/28CNC4→铣床→泰昇-鍍黑鋅→ 鐳雕→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-01</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBUG1-330P-234</td>
+                    <td class="col-order">20260626004-02</td>
+                    <td class="col-unshipped">375</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/27CNC3 →8/28CNC4→铣床→泰昇-鍍黑鋅→ 鐳雕→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-01</td>
-                    <td>客戶 D</td>
-                    <td>4VUCUG1-040P-001</td>
-                    <td>20260626004-05</td>
-                    <td>375</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/28誠光-研磨→松漢CP→鐳雕→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-01</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCUG1-040P-001</td>
+                    <td class="col-order">20260626004-05</td>
+                    <td class="col-unshipped">375</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/28誠光-研磨→松漢CP→鐳雕→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-01</td>
-                    <td>客戶 D</td>
-                    <td>4VUCUG1-050P-001</td>
-                    <td>20260626004-08</td>
-                    <td>375</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/28誠光研磨→松漢CP→鐳雕→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-01</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCUG1-050P-001</td>
+                    <td class="col-order">20260626004-08</td>
+                    <td class="col-unshipped">375</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/28誠光研磨→松漢CP→鐳雕→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-07</td>
-                    <td>客戶 I</td>
-                    <td>Seat Post</td>
-                    <td>S00007</td>
-                    <td>300</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/31待 CNC3 (右側) → CNC5 (左側) →铣床 → 竣淵-陽極黑色 →凌葳-鐳雕 → 包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-07</td>
+                    <td class="col-cust">客戶 I</td>
+                    <td class="col-part">Seat Post</td>
+                    <td class="col-order">S00007</td>
+                    <td class="col-unshipped">300</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/31待 CNC3 (右側) → CNC5 (左側) →铣床 → 竣淵-陽極黑色 →凌葳-鐳雕 → 包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-01</td>
-                    <td>客戶 D</td>
-                    <td>4VCSFF1-270P-001</td>
-                    <td>20260708006-02</td>
-                    <td>250</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/28待包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-01</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VCSFF1-270P-001</td>
+                    <td class="col-order">20260708006-02</td>
+                    <td class="col-unshipped">250</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/28待包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-08</td>
-                    <td>客戶 D</td>
-                    <td>4VUCTB1-340P-HB1</td>
-                    <td>20260811006-01</td>
-                    <td>166</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">8/31富裕勝-皂化→8/26待抽2 →歐鋒-T4T76 → 校直 →CNC左 → CNC右 → CNC外徑 →無心研磨 →巨品-硬陽黑色 → 鐳雕 → 包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-08</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCTB1-340P-HB1</td>
+                    <td class="col-order">20260811006-01</td>
+                    <td class="col-unshipped">166</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">8/31富裕勝-皂化→8/26待抽2 →歐鋒-T4T76 → 校直 →CNC左 → CNC右 → CNC外徑 →無心研磨 →巨品-硬陽黑色 → 鐳雕 → 包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-08</td>
-                    <td>客戶 D</td>
-                    <td>4VUCTB1-350P-HB1</td>
-                    <td>20260811006-03</td>
-                    <td>166</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">8/31富裕勝-皂化 →8/21待凹頭 → 抽1 → 抽2 →歐鋒-T4T76 → 校直 →CNC左 → CNC右 → CNC外徑 →搪磨→無心研磨 →巨品-硬陽黑色 →鐳雕 →包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-08</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCTB1-350P-HB1</td>
+                    <td class="col-order">20260811006-03</td>
+                    <td class="col-unshipped">166</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">8/31富裕勝-皂化 →8/21待凹頭 → 抽1 → 抽2 →歐鋒-T4T76 → 校直 →CNC左 → CNC右 → CNC外徑 →搪磨→無心研磨 →巨品-硬陽黑色 →鐳雕 →包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-08</td>
-                    <td>客戶 D</td>
-                    <td>4VSBTB1-430P-157</td>
-                    <td>20260811005-01</td>
-                    <td>166</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/28待CNC1→CNC2→CNC3→滾花→竣淵→鐳雕→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-08</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBTB1-430P-157</td>
+                    <td class="col-order">20260811005-01</td>
+                    <td class="col-unshipped">166</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/28待CNC1→CNC2→CNC3→滾花→竣淵→鐳雕→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-01</td>
-                    <td>客戶 D</td>
-                    <td>4VCSFG1-070P-001</td>
-                    <td>20260708006-04</td>
-                    <td>70</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-01</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VCSFG1-070P-001</td>
+                    <td class="col-order">20260708006-04</td>
+                    <td class="col-unshipped">70</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-01</td>
-                    <td>客戶 D</td>
-                    <td>4VCSFG1-060P-001</td>
-                    <td>20260708006-03</td>
-                    <td>70</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-01</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VCSFG1-060P-001</td>
+                    <td class="col-order">20260708006-03</td>
+                    <td class="col-unshipped">70</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-10-01</td>
-                    <td>客戶 D</td>
-                    <td>4VSBFG1-330P-170</td>
-                    <td>20260708005-10</td>
-                    <td>10</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待貼箱</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-10-01</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBFG1-330P-170</td>
+                    <td class="col-order">20260708005-10</td>
+                    <td class="col-unshipped">10</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待貼箱</td>
                 </tr>
             
             </tbody>
@@ -1438,71 +1448,71 @@ VTB1-430P-260</td>
         <table class="month-table">
             <thead>
                 <tr>
-                    <th style="width: 70px; text-align: center;">交期風險</th>
-                    <th>預交日</th>
-                    <th>客戶</th>
-                    <th>產品圖號</th>
-                    <th>訂單號碼</th>
-                    <th>未交數</th>
-                    <th>生產數</th>
-                    <th>未完成製程</th>
+                    <th class="col-risk">交期風險</th>
+                    <th class="col-date">預交日</th>
+                    <th class="col-cust">客戶</th>
+                    <th class="col-part">產品圖號</th>
+                    <th class="col-order">訂單號碼</th>
+                    <th class="col-unshipped">未交數</th>
+                    <th class="col-produced">生產數</th>
+                    <th class="col-uncompleted">未完成製程</th>
                 </tr>
             </thead>
             <tbody>
         
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-11-10</td>
-                    <td>客戶 B</td>
-                    <td>50475723-0T366</td>
-                    <td>1150806043-2</td>
-                    <td>12,500</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">8/10待裁管→裁管+倒角→皂化→7/21凹頭→7/22抽管1→皂化→7/23抽2→切頭尾→折角→整形→修頭→7/31滾花→8/7皮膜→8/7包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-11-10</td>
+                    <td class="col-cust">客戶 B</td>
+                    <td class="col-part">50475723-0T366</td>
+                    <td class="col-order">1150806043-2</td>
+                    <td class="col-unshipped">12,500</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">8/10待裁管→裁管+倒角→皂化→7/21凹頭→7/22抽管1→皂化→7/23抽2→切頭尾→折角→整形→修頭→7/31滾花→8/7皮膜→8/7包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-11-13</td>
-                    <td>客戶 F</td>
-                    <td>066291-L002</td>
-                    <td>POW0041820-3</td>
-                    <td>2,000</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">→8/28待CNC1→ CNC2→誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-11-13</td>
+                    <td class="col-cust">客戶 F</td>
+                    <td class="col-part">066291-L002</td>
+                    <td class="col-order">POW0041820-3</td>
+                    <td class="col-unshipped">2,000</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">→8/28待CNC1→ CNC2→誠光(無心研磨→硬鉻→無心研磨)→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-11-03</td>
-                    <td>客戶 D</td>
-                    <td>4VSBTB1-430P-157</td>
-                    <td>20260811005-02</td>
-                    <td>334</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待鼎泰入料→富裕勝→凹頭→束管→抽1→抽2 →切頭尾→擴管→歐鋒→校直→CNC1→CNC2→CNC3→滾花→竣淵→鐳雕→包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-11-03</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VSBTB1-430P-157</td>
+                    <td class="col-order">20260811005-02</td>
+                    <td class="col-unshipped">334</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待鼎泰入料→富裕勝→凹頭→束管→抽1→抽2 →切頭尾→擴管→歐鋒→校直→CNC1→CNC2→CNC3→滾花→竣淵→鐳雕→包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-11-03</td>
-                    <td>客戶 D</td>
-                    <td>4VUCTB1-340P-HB1</td>
-                    <td>20260811006-02</td>
-                    <td>334</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待鼎泰入料→富裕勝-皂化 → 凹頭 → 抽1 → 抽2 →歐鋒-T4T76 → 校直 →CNC左 → CNC右 → CNC外徑 →搪磨→無心研磨 →巨品-硬陽黑色 →鐳雕 →包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-11-03</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCTB1-340P-HB1</td>
+                    <td class="col-order">20260811006-02</td>
+                    <td class="col-unshipped">334</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待鼎泰入料→富裕勝-皂化 → 凹頭 → 抽1 → 抽2 →歐鋒-T4T76 → 校直 →CNC左 → CNC右 → CNC外徑 →搪磨→無心研磨 →巨品-硬陽黑色 →鐳雕 →包裝</td>
                 </tr>
             
                 <tr class="green">
-                    <td class="light-cell">🟢</td>
-                    <td>2026-11-03</td>
-                    <td>客戶 D</td>
-                    <td>4VUCTB1-350P-HB1</td>
-                    <td>20260811006-04</td>
-                    <td>334</td>
-                    <td>0</td>
-                    <td class="uncompleted-text">待鼎泰入料→富裕勝-皂化 → 凹頭 → 抽1 → 抽2 →歐鋒-T4T76 → 校直 →CNC左 → CNC右 → CNC外徑 →搪磨→無心研磨 →巨品-硬陽黑色 →鐳雕 →包裝</td>
+                    <td class="col-risk light-cell">🟢</td>
+                    <td class="col-date">2026-11-03</td>
+                    <td class="col-cust">客戶 D</td>
+                    <td class="col-part">4VUCTB1-350P-HB1</td>
+                    <td class="col-order">20260811006-04</td>
+                    <td class="col-unshipped">334</td>
+                    <td class="col-produced">0</td>
+                    <td class="col-uncompleted uncompleted-text">待鼎泰入料→富裕勝-皂化 → 凹頭 → 抽1 → 抽2 →歐鋒-T4T76 → 校直 →CNC左 → CNC右 → CNC外徑 →搪磨→無心研磨 →巨品-硬陽黑色 →鐳雕 →包裝</td>
                 </tr>
             
             </tbody>
